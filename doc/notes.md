@@ -1,6 +1,5 @@
 # Le code est-il de l'art ?
 
-
 ### Questions sur la forme du PPH
 
 Onyr — Aujourd’hui à 17:05
@@ -17,3 +16,6 @@ Rien ne t'empêche d'illustrer en annexe la dimension esthétique (ou autre) des
 
 Onyr — Aujourd’hui à 17:16
 Ok merci pour votre réponse rapide
+
+
+### Sources Pierre-Edouard Portier
