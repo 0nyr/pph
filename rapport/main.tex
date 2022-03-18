@@ -1,47 +1,99 @@
-\documentclass{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+\documentclass[12pt]{article} % text width
+\usepackage[utf8]{inputenc} % encode text to utf8
+\usepackage[T1]{fontenc} % use T1 font encoding for french
 
-\usepackage[french]{babel}
+\usepackage[french]{babel} % text correction
 \usepackage[a4paper]{geometry}
-\geometry{top=2cm, bottom=2cm, left=3cm, right=3cm}
-\usepackage{caption} 
-\captionsetup[table]{skip=1em}
-\usepackage{graphicx}
-\usepackage{longtable}
-\usepackage{listings}
-\usepackage{amssymb}
-\usepackage{enumitem}
-\usepackage{color}
 
-\title{INSA 3IF - Rapport TP2 C++POO1}
-\author{Florian RASCOUSSIER}
-\date{Janvier 2021}
+% quotes and bibliography
+\usepackage{dirtytalk}
+\usepackage{csquotes}
+\usepackage[
+backend=biber,
+style=numeric,
+sorting=ynt
+]{biblatex}
+\addbibresource{biblio.bib} % bibliography
 
+\title{PPH: Quelles sont les possibilités de faire de l'art avec du code ?}
+\author{Florian Rascoussier}
+\date{March 2022}
+
+\pagenumbering{roman} % set page numbering of front matter sections
+
+% use acronyms and glossaries
+% toc: add glossary to table of contents
+\usepackage[colorlinks]{hyperref}
+\usepackage[acronym, toc]{glossaries} 
+\input{glossaries.tex} % acronyms definitions
+
+% document content
 \begin{document}
 
-\maketitle
+\input{title.tex}
+\newpage
 
-\vspace{10em}
+\input{cover.tex}
+\newpage
 
+\section*{Abstract}
+Ce rapport de projet présente un ensemble de recherches et de réflexions personnelles pour tenter de répondre à la problématique...
+
+\section*{Remerciements}
+Remerciements particuliers aux encadrants de ce projet PhD Track, à savoir:
+\begin{itemize}
+    \item Lionel Brunie - <Lionel.Brunie@insa-lyon.fr>: Encadrant final  du PPH.
+    \item Gonzalo Suarez Lopez - <gonzalo.suarez-lopez@insa-lyon.fr>: Premier encadrant du PPH.
+\end{itemize}
+
+\section*{Avant propos}
+Ce rapport à été rédigé une première fois dans les semaines précédentes à une séance de débat. Celle-ci a permise de réunir diverses personnes: étudiant, professeurs et chercheurs en informatique ; afin de discuter de la problématique et prendre connaissances des recherches préalables avant de débattre sur le sujet et de proposer de nouvelles pistes de réflexion.
+
+\newpage
 \tableofcontents
 
 \newpage
+\pagenumbering{arabic} % reset page numbering
 
 \section{Introduction}
-
-\section{Qu'est-ce que le Code ?}
-
-\subsection{Code source}
+La programmation est une technique dont les prémisses remontent au début du XIXème siècle, avec l'invention du métier à tisser Jacquard. Il faut cependant attendre le milieu du XXème siècle, et notamment les travaux du mathématicien anglais Alan Turing et son article fondateur de la science informatique, \citetitle{Turing1937-pn}, pour que cette technique se développe réellement.
 
 
+\section{Le code est-il de l'art ?}
+
+\subsection{L'art}
+\subsection{La programmation en tant que pratique}
+\subsection{Le code comme medium}
+
+\section{Faire de l'art avec du code ?}
+
+\subsection{L'art des langages}
+\subsection{Approches graphiques}
+\subsection{L'art de la modélisation}
+\subsection{Artisanat et élégance}
 
 
 
 
+\section{Conclusion}
+
+\newpage
+\section{Appendices}
+
+\subsection{Obscurcissement du code}
+
+
+
+% glossary and acronyms
+\printglossary[type=\acronymtype]
+\printglossary
+
+
+\newpage
+\input{biblio.tex}
+
+\subsection{Bibliography} % to be removed
 
 
 \restoregeometry
-
 \end{document}
-
