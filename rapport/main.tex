@@ -26,9 +26,13 @@
 \usepackage[
 backend=biber,
 style=numeric,
-sorting=ynt
+sorting=none
 ]{biblatex}
+% add commands for automatic cite/uncite distinction
+\DeclareBibliographyCategory{cited}
+\AtEveryCitekey{\addtocategory{cited}{\thefield{entrykey}}}
 \addbibresource{biblio.bib} % bibliography
+\nocite{*} % all references
 
 \title{PPH: Quelles sont les possibilités de faire de l'art avec du code ?}
 \author{Florian Rascoussier}
@@ -117,7 +121,7 @@ On considèrera tout de même quelques définitions du Wikitionnaire:
 
 Le code est ainsi fortement lié aux règles qui le définissent. On peut alors considérer que le code est un moyen de transmettre des informations, mais aussi de les représenter. Pour cela, il est nécessaire de respecter des règles, qui sont des normes qui définissent le langage de programmation. On introduira alors la notion de langage de programmation. Mais d'abord, afin de mieux comprendre la nature exacte du code et ses différentes formes, il convient de s'intéresser à son histoire.
 
-\subsection{L'Histoire du code}
+\subsection{Petite Histoire du code}
 La programmation est une technique dont les prémisses remontent au début du XIXème siècle, avec l'invention du métier à tisser Jacquard. Il faut cependant attendre le milieu du XXème siècle, et notamment les travaux du mathématicien anglais Alan Turing et son article fondateur de la science informatique, \citetitle{Turing1937-pn}, pour que cette technique se développe réellement.
 
 
@@ -155,16 +159,20 @@ pour savoir ce qui se passe quand on exécute un tel programme. Quand on défini
 
 En plus ces considérations, les langages se définissent par la ou les grands approches qu'ils choisissent de considérer ou favoriser. Ce sont les paradigmes. Dans la conférence intitulée \citetitle{GerardBerry2015} en \citedate{GerardBerry2015} à l'INRIA de Rennes, \citeauthor{GerardBerry2015} reviens sur le processus créatif derrière la création des nombreux langages. Au départ, on peut considérer deux langages A et B différents avec des approches fondamentalent uniques l'un par rapport à l'autre. Chacun forme sa propre communauté d'utilisateur. Puis arrive un nouveau langage C qui ne propose pas un nouveau point de vue mais reprend les concepts des deux langages précédents pour tenter tant bien que mal de les associéer. Ce dernier viens grapiller des utilisateurs aux deux premiers. Les langages A et B originaux se mettent donc à incorporer des concepts de l'autre afin de récupérer des utilisateurs et venir proposer de nouvelles améliorations à ses utilisateurs.\say{C'est-à-dire que vous avez des tas de gens qui ont des idées complètement baroques. Vous avez des tas de groupes d'utilisateurs avec des traditions totalement différentes dans des pays qui n'ont rien à voir [...] et la paysage deviens très joyeusement incompréhensible. Et c'est là vie, parce que c'est un espace de création. Difficile.} \cite{GerardBerry2015}. \citeauthor{GerardBerry2015} propose ainsi une vision caricaturale mais néanmoins descriptive derrière l'apparition et l'évolution des langages informatiques.
 
-écrire la transition... code, langage et création artistique...
-
+Le langage, support essentiel de la programmation moderne, est donc en lui-même un \say{espace de création} \cite{GerardBerry2015} qui n'est pas sans influence sur le code en lui-même \cite{Dijkstra1976}. Au contraire, il représente un élément essentiel du code, de par la structure, la forme et finalement la philosophie qu'il impose nécessairement de considérer. Nous devrons donc explorer ce que cela implique sur le plan artistique. Cependant, il faut d'abord nous intéresser à la question de l'art lui-même.
 
 \section{Le code est-il de l'art ?}
 
 \subsection{L'art}
+Bien difficile est le problème de la définition de l'art. Faut-il tenter d'en donner une définition précise, chercher à décrire ce qu'il n'est pas ou encore tenter d'apporter une certaine idée de la pensée qui l'inspire et le fait naître ? C'est que le terme peut facilement changer de sens d'une personne, d'un groupe, d'un pays ou d'une culture à l'autre.
+
 \subsection{La programmation en tant que pratique}
 \subsection{Le code comme medium}
 
 \section{Faire de l'art avec du code ?}
+
+\subsection{Code et poésie}
+Le code se définissant le plus souvant comme étant un texte, il y a alors un parallèle naturel à faire entre texte litéraire ou poétique et texte de code informatique \cite{FCramer2001}.
 
 \subsection{L'art des langages}
 \subsection{Approches graphiques}
@@ -190,8 +198,6 @@ En plus ces considérations, les langages se définissent par la ou les grands a
 
 \newpage
 \input{biblio.tex}
-
-\subsection{Bibliography} % to be removed
 
 
 \restoregeometry

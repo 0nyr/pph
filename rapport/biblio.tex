@@ -1,4 +1,13 @@
 \printbibliography[
     heading=bibintoc,
-    title={}
+    category=cited,
+    title={Références}
+]
+
+% uncited references (bibliography)
+% https://tex.stackexchange.com/questions/6967/how-to-split-bibliography-into-works-cited-and-works-not-cited
+\printbibliography[
+    notcategory=cited,
+    heading=bibintoc,
+    title={Bibliographie complémentaire},
 ]
