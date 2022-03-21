@@ -17,8 +17,3 @@ Les possibilités de l'art en tant que code qui m'intéresse
 Problématique: Quelles sont les possibilités de faire de l'art avec du code.
 
 podcast, recherche préalable, synthèse
-
-Reposer la première probléùmatique et la réiroenter dans le podcast, durant l'incipit
-
-1. point de vues tranchés
-2.
