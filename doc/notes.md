@@ -17,5 +17,14 @@ Rien ne t'empêche d'illustrer en annexe la dimension esthétique (ou autre) des
 Onyr — Aujourd’hui à 17:16
 Ok merci pour votre réponse rapide
 
+### Notes Eric Guérin: Donald Knuth, TeX and *The art of computer programming*
 
-### Sources Pierre-Edouard Portier
+Quand j'ai vu le sujet j'ai tout de suite pensé à Donald Knuth et sa série de livres "The art of computer programming" qui même s'ils ne parlent pas forcément d'art font une référence directe à ton sujet dans le titre ;)
+
+L'un des maitres de la programmaiton a décidé d'appeler une série de livre qu'on appelle souvent la bible avec le mot "art" dans le titre. Il doit être intéressant de lire au moins la préface, dont voici un extrait :
+
+"The process of preparing programs for a digital computer is especially attractive, not only because it can be economically and scientifically rewarding, but also because it can be an aesthetic experience mucb like composing poetry or music."
+
+Preface, *The art of computer programming*, Knuth, Donald.
+
+L'estéthique pour Knuth était très importante au point qu'il a dévelopé TeX juste pour pouvoir écrire son bouquin  ! Voir aussi la notion de **Literate Programming** qu'il a introduite et qui est très liée à ton sujet aussi.
