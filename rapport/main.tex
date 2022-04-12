@@ -63,15 +63,30 @@ Ce rapport de projet présente un ensemble de recherches et de réflexions perso
 En outre, le code étant un outil à même de former des images, des mouvements ou des sons, on ne s'intéressera pas à la manière de créer des oeuvres d'art en utilisant du code. Il s'agit de se focaliser sur le code et la programmation elle-même, et non pas sur le produit ou résultat de ces derniers.
 
 \section*{Remerciements}
-Remerciements particuliers aux encadrants de ce projet PhD Track, à savoir:
+Remerciements particuliers aux encadrants de ce projet, à savoir:
 
 \begin{itemize}
-    \item \textbf{Lionel Brunie} - <Lionel.Brunie@insa-lyon.fr>: Encadrant final  du PPH.
+    \item \textbf{Lionel Brunie} - <lionel.brunie@insa-lyon.fr>: Encadrant final  du PPH.
     \item \textbf{Gonzalo Suarez Lopez} - <gonzalo.suarez-lopez@insa-lyon.fr>: Premier encadrant du PPH.
 \end{itemize}
 
+Ce rapport à été rédigé une première fois dans les semaines précédentes à une séance de débat. Celle-ci a permise de réunir quelques personnes du Département Informatique de l'INSA Lyon ; afin de discuter de la problématique et prendre connaissances des recherches préalables avant de débattre sur le sujet et de proposer de nouvelles pistes de réflexion.
+
+Remerciements aux participants de la séance de débat, qui à eu lieu le Jeudi 7 avril 2022 (10-12h):
+
+\begin{itemize}
+    \item \textbf{Eric Guérin} - <eric.guerin@insa-lyon.fr>: Professeur, chercheur au laboratoire LIRIS.
+    \item \textbf{Anicet Nougaret} - <anicet.nougaret@insa-lyon.fr>: Etudiant IF 4ème année. 
+    \item \textbf{Ithan Velarde Requena} - <ithan.velarde-requena@insa-lyon.fr>: Etudiant IF 3ème année.
+\end{itemize}
+
+
 \section*{Avant propos}
-Ce rapport à été rédigé une première fois dans les semaines précédentes à une séance de débat. Celle-ci a permise de réunir diverses personnes: étudiant, professeurs et chercheurs en informatique ; afin de discuter de la problématique et prendre connaissances des recherches préalables avant de débattre sur le sujet et de proposer de nouvelles pistes de réflexion.
+Ce projet de PPH est titré par la question \say{Le code est-il de l'art ?}. Ce titre décrit bien l'objectif et le cadre général de ce PPH mais couvre un vaste champs de réflexion qui n'est pas réellement représentatif du point de vue choisie. En effet, le code étant le produit d'une pratique, il semble assez direct de dire qui puisse être l'object d'une création ou d'une pratique artistique. Ainsi, la problématique réelle est donc \say{Quelles sont les possibilités de faire de l'art avec du code ?}. Cette question est donc ciblée sur les pratiques, les formes et les moyens de création artistique ayant le code pour object.
+
+La réponse à la problématique ne pouvant passer que par la compréhension du sujet global, il va donc falloir consacrer les 2 premières parties du rapport à discuter de ce qu'est le code, et de la nature de l'art, avant de réellement pouvoir aborder les différents axes de création artistiques, et les pratiques connexes que l'on peut relier au code et à la programmation. En effet, art comme code sont des concepts flou qui cachent une multitude des réalités et concepts différents. Bien qu'il ne sera pas possible d'en donner une approche précise et complète, discuter de ces concepts est néanmoins nécessaire pour se doter des outils de compréhension et de réflexion qui seront nécessaires pour la suite du rapport.
+
+Enfin, il semble important de rappeler que ce rapport est issue d'un projet de PPH, c'est à dire d'un travail personnel de 4\ts{ème} année, sans créneau horaire réservé dans la formation, et valorisé au minimum d'un unique crédit ECTS. Il est donc important de considérer que ce rapport n'a en aucune manière l'ambition de faire un tour exhaustif de la question auquel il tente d'apporter un éclairage.
 
 \newpage
 \tableofcontents
@@ -124,13 +139,17 @@ On considèrera tout de même quelques définitions du Wikitionnaire:
 Le code est ainsi fortement lié aux règles qui le définissent. On peut alors considérer que le code est un moyen de transmettre des informations, mais aussi de les représenter. Pour cela, il est nécessaire de respecter des règles, qui sont des normes qui définissent le langage de programmation. On introduira alors la notion de langage de programmation. Mais d'abord, afin de mieux comprendre la nature exacte du code et ses différentes formes, il convient de s'intéresser à son histoire.
 
 \subsection{Petite Histoire du code}
-Remonter dans l'histoire du code et de la programmation est importante pour comprendre les différentes formes de code, et ses évolutions. La programmation est une technique qui permet définir des règles et des comportements sans avoir à changer le système physique qui l'utilise. Selon la définition que l'on se donne, et les exemples que l'on choisi de considérer, on peut remonter jusque dans l'antiquité avec les automates d'Héron d'Alexandrie \cite{View_all_of_Hansels_posts2018-uw}. La première invention majeure remonte cependant au début du XIX\ts{ème} siècle, avec l'invention du métier à tisser Jacquard, en 1801 à Lyon \cite{RDigest1982}. Son invention, inspirée des orgues de barbarie, permettait de lever automatiquement les fils de soie nécessaireq à la réalisation de motifs. Motifs pouvant être modifiés grâce à un système modulaire de cartes perforées et d'un mécanisme en carré mobile \cite{noauthor_2009-bf}. Ce système est donc l'ancêtre direct des cartes perforées encore en usage au XX\ts{ème}siècle, et successivement amélioré par les équipes de Sir Thomas Watson et sa société IBM. Passant par étape de 22 à 80 colonnes et de 8 à 10 lignes, la fameuse \textit{IBM card} a permis à l'entreprise de se développer fortement dans la première moitié du XX\ts{ème} siècle, en restant pendant près de 40 ans le moyen par excellence pour stocker, transmettre et traiter des données \cite{noauthor_2012-xq}.
+Remonter dans l'histoire du code et de la programmation est importante pour comprendre les différentes ses différentes formes, et ses évolutions. La programmation est une technique qui permet définir des règles et des comportements sans avoir à changer le système physique qui l'utilise. Selon la définition que l'on se donne, et les exemples que l'on choisi de considérer, on peut remonter jusque dans l'antiquité avec les automates d'Héron d'Alexandrie \cite{View_all_of_Hansels_posts2018-uw}. L'idée originale étant de pouvoir définir un système capable de modifier son comportement sans modifier le système physique qui qui les utilise.
 
-Entre temps, il est important de regarder les developpement de Charles Baddage et ses travaux sur les machines calculatoires et analytiques qui font qu'il est souvent considéré, non sans raison, comme le père de l'ordinateur \cite{Copeland2020-my}. Inspiré par le métier Jaquard, ce professeur de l'université de Cambridge a d'abord créé le \textit{Difference Engine}, une machine entièrement analogique, compsé de pièces mécaniques et capable de calculer automatiquement des tables de calculs pour certaines fonctions mathématiques comme le logarithme, ou encore pour le calcul automatique des marées. Bien qu'il n'acheva jamais sa machine, il proposa une nouvelle idée d'une machine généraliste qui aurait eu sa propre unité centrale de calcul et sa mémoire. 
+La première invention majeure remonte cependant au début du XIX\ts{ème} siècle, avec l'invention du métier à tisser Jacquard, en 1801 à Lyon \cite{RDigest1982}. Son invention, inspirée des orgues de barbarie, permettait de lever automatiquement les fils de soie nécessaire à la réalisation de motifs. Motifs pouvant être modifiés grâce à un système modulaire de cartes perforées et d'un mécanisme en carré mobile \cite{noauthor_2009-bf}. Ce système est donc l'ancêtre direct des cartes perforées encore en usage au XX\ts{ème}siècle, et successivement amélioré par les équipes de Sir Thomas Watson et sa société IBM. Passant par étape de 22 à 80 colonnes et de 8 à 10 lignes, la fameuse \textit{IBM card} a permis à l'entreprise de se développer fortement dans la première moitié du XX\ts{ème} siècle, en restant pendant près de 40 ans le moyen par excellence pour stocker, transmettre et traiter des données \cite{noauthor_2012-xq}.
 
-Il faut cependant attendre le milieu du XXème siècle, et notamment les travaux du mathématicien anglais Alan Turing et son article fondateur de la science informatique, \citetitle{Turing1937-pn}, pour que cette technique se développe réellement.
+Entre temps, il est important de regarder les developpement de Charles Baddage et ses travaux sur les machines calculatoires et analytiques qui font qu'il est souvent considéré, non sans raison, comme le père de l'ordinateur \cite{Copeland2020-my}. Inspiré par le métier Jaquard, ce professeur de l'université de Cambridge a d'abord créé le \textit{Difference Engine}, une machine entièrement analogique, composée de pièces mécaniques et capable de calculer automatiquement des tables de calculs pour certaines fonctions mathématiques comme le logarithme, ou encore pour le calcul automatique des marées. Bien qu'il n'acheva jamais sa machine, il proposa une nouvelle idée d'une machine généraliste qui aurait eu sa propre unité centrale de calcul et sa mémoire. 
 
+Dans les notes accompagnants la traduction de notes d'un séminaire donné par Baddage en 1840, Augusta Ada King, comptesse de Lovelace, ou simplement Ada Lovelace proposa une méthode de calcul automatique de la suite des nombres de Bernouilli sur la machine analytique, sous forme d'un diagramme et de notes. Cette méthode décrite dans la note G, qui se distingue du pur calcul scientifique jusque là envisagé, notamment par Baddage, et est souvent considéré comme le premier véritable programme informatique \cite{JKrysa}. Ada Lovelace est ainsi considéré comme la première programmeuse de l'histoire. 
 
+Il faut cependant attendre le milieu du XXème siècle, et notamment les travaux du mathématicien anglais Alan Turing et son article fondateur de la science informatique, pour que cette technique se développe réellement \citetitle{Turing1937-pn}. La programmation allant de paire avec le développement et la monté en puissance des ordinateurs, on passe progressivement des programmes simples réalisés physiquement sur circuit électroniques, aux programmes sur cartes perforées, avant que ne se développent les premiers langages de programmations.
+
+TODO: histoire des langages de programmation
 
 \subsection{Le Langage}
 
