@@ -28,3 +28,45 @@ L'un des maitres de la programmaiton a décidé d'appeler une série de livre qu
 Preface, *The art of computer programming*, Knuth, Donald.
 
 L'estéthique pour Knuth était très importante au point qu'il a dévelopé TeX juste pour pouvoir écrire son bouquin  ! Voir aussi la notion de **Literate Programming** qu'il a introduite et qui est très liée à ton sujet aussi.
+
+## Notes séance de débat
+
+* [X] Les différentes significations du mot *code*
+* [ ] Le code écrit pour un autre humain, qui est l'auteur, qui est le public imaginé à la création, quel sont les spectateurs réels
+* [ ]
+* [ ] Qui sont les programmeurs ? > Le code est plus souvent lu qu'écrit d'où un objectif de clarté et d'élégance
+* [ ] vente au enchères de code ?
+* [ ] domaine d'initié, avoir du recul sur la technique pure pour passé dans la dimension de l'esthétique et de la démarche, art pour un public d'initié (cf le jazz) "le code correspond plus à la partition, l'algorithme étant la musique". Plus le moyen ou plus l'idée ? Différents niveaux de potentialité artistique
+* [ ] Quid de l'utilité ? L'art est-il utile ? Comment être dans une démarche artistique pour quelque chose d'utile ?
+* [ ] Exemple du couteau ? C'est un outil mais pourtant il a aussi un coté artistique possible. Objet d'art ? Objet d'artisant ? Simple objet ?
+* [ ] Aspect artistique important, par exemple pour différentier les frameworks front-end.
+* [ ] police: comic code
+* [ ]
+
+On ne s'intéressera pas à la finalité du code, pour se concentrer sur les processus en amont, c'est-à-dire la conception de l'algorithme, du programme et sa retranscription écrite dans un système de règles considéré. On ne s'intéressera donc pas à l'étape final, à ce que produit le code. En effet, il on entrerai alors dans un tout autre domaine.
+
+La frontière entre art et non art est avant tout personnelle.
+
+- 
+
+#### Esthétisme
+
+Importance de l'aspect esthétique, même dans certains outils payants, par exemple la suite JetBrain
+
+Fondries spécialisées sur les polices d'écritures dédies au code, avec des ligatures
+
+screenshoots code, preuve d'un esthétisme derrière le code
+
+ASCII art, ANSI Art (sorte de pixel art alternatif, hérité des terminaux ANSI), l'art du commentaire, racines dans la communauté Open Source >> inspire d'autres mouvements dans le pixel art, n'utilisant plus des carrés mais des unités de texte
+
+Unix-porn, importance de faire de la configuration
+
+Esthétique du terminal, qui influence d'autre média comme le cinéma (James Bond, l'animation (ghost in the shell), ou la littérature
+
+Autour du code
+
+Le clavier, la table, la chaise... L'acte de programmer est souvent très dense, complexe et très long. Il devient une philosophie, une facon voir un art de vivre. D'où le fait que l'esthétique finit par prendre une place importante car on peut comprendre que n'importe qui qui consacrerait une part significative de son temps à la pratique aurait un réel intérêt à prendre du plaisir grâce à ces à-côtés.
+
+#### prouesse artistico-sportive
+
+coder sans outils, sur le bloc-note ou sur vim, sans intellisense ou aucune aide. Ou alors avec un clavier sans layout.
