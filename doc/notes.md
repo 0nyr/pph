@@ -1,5 +1,9 @@
 # Le code est-il de l'art ?
 
+### Useful links
+
+[definition of art | Oxford](https://www.oxfordhandbooks.com/view/10.1093/oxfordhb/9780199279456.001.0001/oxfordhb-9780199279456-e-7)
+
 ### Questions sur la forme du PPH
 
 Onyr — Aujourd’hui à 17:05
@@ -47,8 +51,6 @@ On ne s'intéressera pas à la finalité du code, pour se concentrer sur les pro
 
 La frontière entre art et non art est avant tout personnelle.
 
-- 
-
 #### Esthétisme
 
 Importance de l'aspect esthétique, même dans certains outils payants, par exemple la suite JetBrain
@@ -70,3 +72,7 @@ Le clavier, la table, la chaise... L'acte de programmer est souvent très dense,
 #### prouesse artistico-sportive
 
 coder sans outils, sur le bloc-note ou sur vim, sans intellisense ou aucune aide. Ou alors avec un clavier sans layout.
+
+Jonathan Blow, créateur de The Witness
+
+Donald Knuth, crée la police *computer modern* pour Latex
