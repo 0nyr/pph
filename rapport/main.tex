@@ -34,6 +34,8 @@ sorting=none
 \addbibresource{biblio.bib} % bibliography
 \nocite{*} % all references
 
+\newcommand{\ts}{\textsuperscript} % superscript for 2nd or XIXème
+
 \title{PPH: Quelles sont les possibilités de faire de l'art avec du code ?}
 \author{Florian Rascoussier}
 \date{March 2022}
@@ -44,7 +46,16 @@ sorting=none
 % toc: add glossary to table of contents
 \usepackage{hyperref}
 \usepackage[acronym, toc]{glossaries} 
-\input{glossaries.tex} % acronyms definitions
+%\input{glossaries.tex} % acronyms definitions
+\makeglossaries
+\newglossaryentry{latex}
+{
+        name=latex,
+        description={Is a mark up language specially suited for 
+scientific documents}
+}
+\newacronym{asic}{ASIC}{Application-specific integrated circuit}
+
 
 % document content
 \begin{document}
@@ -61,15 +72,30 @@ Ce rapport de projet présente un ensemble de recherches et de réflexions perso
 En outre, le code étant un outil à même de former des images, des mouvements ou des sons, on ne s'intéressera pas à la manière de créer des oeuvres d'art en utilisant du code. Il s'agit de se focaliser sur le code et la programmation elle-même, et non pas sur le produit ou résultat de ces derniers.
 
 \section*{Remerciements}
-Remerciements particuliers aux encadrants de ce projet PhD Track, à savoir:
+Remerciements aux encadrants de ce projet, à savoir:
 
 \begin{itemize}
-    \item \textbf{Lionel Brunie} - <Lionel.Brunie@insa-lyon.fr>: Encadrant final  du PPH.
+    \item \textbf{Lionel Brunie} - <lionel.brunie@insa-lyon.fr>: Encadrant final  du PPH.
     \item \textbf{Gonzalo Suarez Lopez} - <gonzalo.suarez-lopez@insa-lyon.fr>: Premier encadrant du PPH.
 \end{itemize}
 
+Une première ébauche de ce rapport à d'abord été rédigé dans les semaines précédentes à une séance de débat. Celle-ci a permise de réunir quelques personnes du Département Informatique de l'INSA Lyon ; afin de discuter de la problématique et prendre connaissances des recherches préalables avant de débattre sur le sujet et de proposer de nouvelles pistes de réflexion.
+
+Remerciements particuliers aux participants de la séance de débat, qui à eu lieu le Jeudi 7 avril 2022 (10-12h):
+
+\begin{itemize}
+    \item \textbf{Eric Guérin} - <eric.guerin@insa-lyon.fr>: Professeur, chercheur au laboratoire LIRIS.
+    \item \textbf{Anicet Nougaret} - <anicet.nougaret@insa-lyon.fr>: Etudiant IF 4ème année. 
+    \item \textbf{Ithan Velarde Requena} - <ithan.velarde-requena@insa-lyon.fr>: Etudiant IF 3ème année.
+\end{itemize}
+
+
 \section*{Avant propos}
-Ce rapport à été rédigé une première fois dans les semaines précédentes à une séance de débat. Celle-ci a permise de réunir diverses personnes: étudiant, professeurs et chercheurs en informatique ; afin de discuter de la problématique et prendre connaissances des recherches préalables avant de débattre sur le sujet et de proposer de nouvelles pistes de réflexion.
+Ce projet de PPH est titré par la question \say{Le code est-il de l'art ?}. Ce titre décrit bien l'objectif et le cadre général de ce PPH mais couvre un vaste champs de réflexion qui n'est pas réellement représentatif du point de vue choisie. En effet, le code étant le produit d'une pratique, il semble assez direct de dire qui puisse être l'object d'une création ou d'une pratique artistique. Ainsi, la problématique réelle est donc \say{Quelles sont les possibilités de faire de l'art avec du code ?}. Cette question est donc ciblée sur les pratiques, les formes et les moyens de création artistique ayant le code pour object.
+
+La réponse à la problématique ne pouvant passer que par la compréhension du sujet global, il va donc falloir consacrer les 2 premières parties du rapport à discuter de ce qu'est le code, et de la nature de l'art, avant de réellement pouvoir aborder les différents axes de création artistiques, et les pratiques connexes que l'on peut relier au code et à la programmation. En effet, art comme code sont des concepts flous qui cachent une multitude des réalités et concepts différents. Bien qu'il ne sera pas possible d'en donner une définition précise et complète, discuter de ces concepts est néanmoins nécessaire pour se doter des outils de compréhension et de réflexion utiles pour la suite du rapport.
+
+Enfin, il semble important de rappeler que ce rapport est issue d'un projet de PPH, c'est à dire d'un travail personnel de 4\ts{ème} année, sans créneau horaire réservé dans la formation, et valorisé au minimum d'un unique crédit ECTS. Il est donc important de considérer que ce rapport n'a en aucune manière l'ambition de faire un tour exhaustif de la question auquel il tente d'apporter un éclairage.
 
 \newpage
 \tableofcontents
@@ -78,11 +104,11 @@ Ce rapport à été rédigé une première fois dans les semaines précédentes 
 \pagenumbering{arabic} % reset page numbering
 
 \section{Introduction}
-Nous verrons d'abord comment la pratique de la programmation et le code qui en résultent ont évolué afin de comprendre en détail qu'est ce que le code. Nous nous intéresserons ensuite à l'art, et la relation entre le code et ce dernier. Enfin, nous exploreront les diverses méthodes, pratiques et techniques qui font du code un art à part entière.
+Nous verrons d'abord comment la pratique de la programmation et le code qui en résulte ont évolué afin de comprendre en détail qu'est ce que le code. Nous nous intéresserons ensuite à l'art, et la relation entre le code et ce dernier. Enfin, nous exploreront les diverses méthodes, pratiques et techniques qui font du code un art à part entière.
 
 \section{Qu'est-ce que le code ?}
 \subsection{Programmation, code et langage}
-La programmation est un terme générique. Composé du suffixe \textit{-ation}, du latin \textit{-atio}, utilisé pour signifier un action, et du nom \textit{programme} lui-même issue via le latin \textit{programma} du grec ancien \textgreek{pr'ogramma}.
+La programmation est un terme générique. Composé du suffixe \textit{-ation}, du latin \textit{-atio}, utilisé pour signifier une action, et du nom \textit{programme} lui-même issue via le latin \textit{programma} du grec ancien \textgreek{pr'ogramma}.
 qui peut désigner divers concepts selon le domaine, par exemple le terme \textit{programmation} désigne, dans le milieu du cinéma, l'action de déterminer les programmes ou films d'une salle donnée. Bien sûr, le terme est ici considéré sous l'angle des sciences informatiques. \say{Pour éviter cette confusion polysémique, des termes alternatifs sont parfois utilisés, comme le code ou le codage, mais la programmation informatique ne peut pas se réduire au code} \cite{Romero2017-mk}. D'après le Larousse, la programmation est donc: 
 \say{
     \begin{quote}
@@ -92,9 +118,9 @@ qui peut désigner divers concepts selon le domaine, par exemple le terme \texti
         \end{itemize}
     \end{quote}
 }
-\cite{Nimmo2017-ya}. Cette définition n'est pas parfaite mais pose les éléments essentiels. On comprends que le code est l'object de la programmation, ce qu'elle produit.
+\cite{Nimmo2017-ya}. Cette définition n'est pas parfaite mais pose les éléments essentiels. Elle montre que la programmation est une action, un acte qui suppose des considérations techniques (quelle machine, quelle format, quels instructions), physique ou structurelles (comment l'exécution est effectuée, comment fournir les instructions à la machine, quel support), et un but (quelle tâche, pour quoi faire). La programmation est donc une activité créatrice et créative. On comprends aussi que le code est l'object de cette création, ce qu'elle produit.
 
-Le code est donc un object issue d'un acte de production. En cela, la programmation relève donc de la technique tandis que le code est de l'ordre de la production, de la création. Le mot \textit{code} est cependant lui aussi fortement polysémique. En effet le terme est issue du latin \textit{codex}, variante de \textit{caudex} signifiant \say{tronc}. Le terme est cependant fortement associé aux livres et particulièrement aux ouvrages juridiques. Aujourd'hui, le terme peut prendre divers sens selon le domaine considéré, du droit à la linguistique en passant par l'informatique ou la cryptographie. Le Larousse distingue ainsi de nombreux sens différents pour le mot, dont les plus intéressantes du point de vue du sujet sont les suivantes:
+Le code est donc un object issue d'un acte de production. En cela, la programmation relève donc de la technique tandis que le code est de l'ordre de la production. Le mot \textit{code} est cependant lui aussi fortement polysémique. En effet le terme est issue du latin \textit{codex}, variante de \textit{caudex} signifiant \say{tronc}. Le terme est cependant fortement associé aux livres et particulièrement aux ouvrages juridiques. Aujourd'hui, le terme peut prendre divers sens selon le domaine considéré, du droit à la linguistique en passant par l'informatique ou la cryptographie. Le Larousse distingue ainsi de nombreux sens différents pour le mot, dont les plus intéressantes du point de vue du sujet sont les suivantes:
 \say{
     \begin{quote}
         \begin{itemize}
@@ -117,14 +143,32 @@ On considèrera tout de même quelques définitions du Wikitionnaire:
         \end{itemize}
     \end{quote}
 }
-\cite{noauthor_undated-vw}. Ces définitions viennent compléter la définition du code. Du point de vue de l'informatique, le code est donc un texte d'instructions et les instructions elles-mêmes indépendament du langage ou du niveau d'abstraction considéré. Ce code ne peut être écrit qu'en respectant des normes et des règles afin d'être finalement exécutable par une machine. Le code est le fruit d'un acte de création, d'un travail d'écriture et de conception.
+\cite{noauthor_undated-vw}. Ces définitions viennent compléter la définition du code. Du point de vue de l'informatique, le code est donc un ensemble d'instructions et les instructions elles-mêmes qui sont alors dépendantes d'un langage, système et niveau d'abstraction considéré. En effet, tout code ne peut être écrit qu'en respectant des normes et des règles afin d'être finalement exécutable par une machine. Il est le fruit d'un acte de création, d'un travail d'écriture et de conception. Le code est donc fortement lié aux règles qui le définissent. 
 
-Le code est ainsi fortement lié aux règles qui le définissent. On peut alors considérer que le code est un moyen de transmettre des informations, mais aussi de les représenter. Pour cela, il est nécessaire de respecter des règles, qui sont des normes qui définissent le langage de programmation. On introduira alors la notion de langage de programmation. Mais d'abord, afin de mieux comprendre la nature exacte du code et ses différentes formes, il convient de s'intéresser à son histoire.
+Cet étallage de définitions permet donc de saisir la nature profondément polysémique du terme et son lien étroit avec la notion de programmation. On peut donc catégoriser les différents sens qui seront utiles dans la suite de ce rapport:
+
+\begin{itemize}
+    \item Séquence instructions et de données qui constituent un programme et qui ont vocation à être exécuté par un ordinateur. Il s'agit d'un sens général qui englobe une variétés de représentation, du \textit{code source} aux \acrfull{asic}.
+    \item Système de règles, de symboles et de conventions permettant de représenter une information. Il s'agit d'une considération générale de ce que peut désigner le terme. On pensera notamment aux langages informatiques et langages de programmation qui sont des éléments essentiel à la pratique de la programmation moderne et qui déterminent fortement la forme que prendra le code source.
+    \item On désigne par \textit{code source}, l'ensemble des documents qui forment un programme avant toute forme de traitement. Ce code est alors réparti dans un ou plusieurs textes et documents écrits qui peuvent être rédigés et lus par un humain. Ils servent de base à divers procédés permettant de passer de ces documents à un ensemble de données et d'instructions exécutés par un ordinateur. 
+    \item Le \textit{code machine} désigne les instructions, généralement après traitement, qui sont donc directement exécutées par le processeur d'un ordinateur. Elle n'ont pas vocations à être écrites ou lues par un humain, et sont dites \textit{de bas niveau}. Elles sont également fortement dépendantes du jeu d'instruction, c'est-à-dire des instructions machines éxécutables par le processeur considéré. Cette élément explique entre autre le besoin de disposer de systèmes de représentations de plus hauts niveaux, indépendants de la notion de jeu d'instruction. On notera que l'\textit{assembly}, c'est à dire du code machine écrit sous une forme lisible par un humain n'en est pas stricto sensu une forme alternative puisqu'il représente la même chose, mais nécessite quand même une conversion.
+    \item Enfin, on introduira la notion de \textit{code-idée}, c'est à dire l'algoritme, l'objectif derrière le code source ou machine, l'idée indépendante de tout langage. Cette idée traverse les différents niveaux de code et nait en premier lieu dans l'esprit du programmeur lorsqu'il écrit ou lit un code source. Cette idée peut s'exprimer en une multitude de formes selon le choix du langage utilisé. D'une certaine manière, le choix du langage va cependant impacter la forme prise par l'idée et il y a donc une distinction entre l'idée, la forme et l'exécuion effective.
+\end{itemize}
+
+Pour résumer, on peut considérer que le code est un moyen de transmettre des informations, mais aussi de les représenter. Ces informations constituent un programme, fruit du travail du programmeur et conçu avec un objectif praticulier. Pour cela, il est nécessaire de respecter des règles généralement sous la forme d'un langage de programmation. Afin de mieux comprendre l'évolution de ces concepts et leurs différentes formes, il convient de s'intéresser à l'histoire.
 
 \subsection{Petite Histoire du code}
-La programmation est une technique dont les prémisses remontent au début du XIXème siècle, avec l'invention du métier à tisser Jacquard. Il faut cependant attendre le milieu du XXème siècle, et notamment les travaux du mathématicien anglais Alan Turing et son article fondateur de la science informatique, \citetitle{Turing1937-pn}, pour que cette technique se développe réellement.
+Remonter dans l'histoire du code et de la programmation est important pour comprendre ses origines, ses différentes formes, et ses évolutions. La programmation est une technique qui permet définir des règles et des comportements sans avoir à changer le système physique qui l'utilise. Selon la définition que l'on se donne, et les exemples que l'on choisi de considérer, on peut remonter jusque dans l'antiquité avec les automates d'Héron d'Alexandrie \cite{View_all_of_Hansels_posts2018-uw}. L'idée originale étant de pouvoir définir un système capable de modifier son comportement sans modifier ses composants physiques dans le but évident de multiplier les comportements sans avoir à changer le système.
 
+La première invention majeure remonte cependant au début du XIX\ts{ème} siècle, avec l'invention du métier à tisser Jacquard, en 1801 à Lyon \cite{RDigest1982}. Son invention, inspirée des orgues de barbarie, permettait de lever automatiquement les fils de soie nécessaire à la réalisation de motifs. Motifs pouvant être modifiés grâce à un système modulaire de cartes perforées et d'un mécanisme en carré mobile \cite{noauthor_2009-bf}. Ce système est donc l'ancêtre direct des cartes perforées encore en usage au XX\ts{ème}siècle, et successivement amélioré par les équipes de Sir Thomas Watson et sa société IBM. Passant par étape de 22 à 80 colonnes et de 8 à 10 lignes, la fameuse \textit{IBM card} a permis à l'entreprise de se développer fortement dans la première moitié du XX\ts{ème} siècle, en restant pendant près de 40 ans le moyen par excellence pour stocker, transmettre et traiter des données \cite{noauthor_2012-xq}.
 
+Entre temps, il est important de regarder les developpement de Charles Baddage et ses travaux sur les machines calculatoires et analytiques qui font qu'il est souvent considéré, non sans raison, comme le père de l'ordinateur \cite{Copeland2020-my}. Inspiré par le métier Jaquard, ce professeur de l'université de Cambridge a d'abord créé le \textit{Difference Engine}, une machine entièrement analogique, composée de pièces mécaniques et capable de calculer automatiquement des tables de calculs pour certaines fonctions mathématiques comme le logarithme, ou encore pour le calcul automatique des marées. Bien qu'il n'acheva jamais sa machine, il proposa une nouvelle idée d'une machine généraliste qui aurait eu sa propre unité centrale de calcul et sa mémoire. 
+
+Dans les notes accompagnants la traduction de notes d'un séminaire donné par Baddage en 1840, Augusta Ada King, comptesse de Lovelace, ou simplement Ada Lovelace proposa une méthode de calcul automatique de la suite des nombres de Bernouilli sur la machine analytique, sous forme d'un diagramme et de notes. Cette méthode décrite dans la note G, qui se distingue du pur calcul scientifique jusque là envisagé, notamment par Baddage, et est souvent considéré comme le premier véritable programme informatique \cite{JKrysa}. Ada Lovelace est ainsi considéré comme la première programmeuse de l'histoire. 
+
+Il faut cependant attendre le milieu du XXème siècle, et notamment les travaux du mathématicien anglais Alan Turing et son article fondateur de la science informatique, pour que cette technique se développe réellement \citetitle{Turing1937-pn}. La programmation allant de paire avec le développement et la monté en puissance des ordinateurs, on passe progressivement des programmes simples réalisés physiquement sur circuit électroniques, aux programmes sur cartes perforées, avant que ne se développent les premiers langages de programmations. Ces langages ont largement impacté la pratique de la programmation du fait du cadre et des outils qu'ils donnent aux programmeurs.
+
+%TODO: histoire des langages de programmation
 
 \subsection{Le Langage}
 
@@ -149,13 +193,7 @@ Un langage de programmation est un outil pour le programmeur. En effet, tout pro
 
 Le choix du ou des langages que l'on souhaite utiliser pour écrire un programme est donc un aspect important. Comme l'écrit \citeauthor{Dijkstra1976} dans son livre \citetitle{Dijkstra1976} en \citedate{Dijkstra1976}: \say{[...] one is immediately faced with the question: Which programming language am I going to use ?, and this is not a mere question of presentation! A most important, but also most elusive, aspect of any tool is its influence on the habits of those who train themselves in its use. If the tool is a programming language, this influence is, -whether we like it or not- an influence on our thinking habits.} \cite{Dijkstra1976}.
 
-La création d'un langage de programmation est en elle-même un tâche complexe. En effet de très nombreux éléments rentrent en comptent dans la création d'un langage. Comment les rappellent les auteurs de \citetitle{GDowekJJLevy2006}, \say{Nous sommes encore très loin d'avoir trouvé un langage de programmation
-définitif. Presque chaque jour, de nouveaux langages sont créés et de nouvelles fonctionnalités sont ajoutées aux langages anciens. [...] La première chose que l'on doit décrire, quand on définit un langage de
-programmation, est sa syntaxe. Faut-il écrire x := 1 ou x = 1? Faut-il mettre des parenthèses après un if ou non ? Plus généralement, quelles sont les suites de
-symboles qui forment un programme? On dispose pour cela d'un outil efficace : la notion de grammaire formelle. À l'aide d'une grammaire, on peut décrire la
-syntaxe d'un langage de manière qui ne laisse pas de place à l'interprétation et qui rende possible l'écriture d'un programme qui reconnaît les programmes
-syntaxiquement corrects. Mais savoir ce qu'est un programme syntaxiquement correct ne suffit pas
-pour savoir ce qui se passe quand on exécute un tel programme. Quand on définit un langage de programmation, on doit don également décrire sa sémantique, c'est-à-dire ce qui se passe quand on exécute un programme. Deux langages peuvent avoir la même syntaxe mais des sémantiques différentes.} \cite{GDowekJJLevy2006}. Un langage de programmation est ainsi composé plusieurs éléments qui permettent à une machine de comprendre et d'excuter le programme sans ambiguité.
+La création d'un langage de programmation est en elle-même un tâche complexe. En effet de très nombreux éléments rentrent en comptent dans la création d'un langage. Comment les rappellent les auteurs de \citetitle{GDowekJJLevy2006}, \say{Nous sommes encore très loin d'avoir trouvé un langage de programmation définitif. Presque chaque jour, de nouveaux langages sont créés et de nouvelles fonctionnalités sont ajoutées aux langages anciens. [...] La première chose que l'on doit décrire, quand on définit un langage de programmation, est sa syntaxe. Faut-il écrire x := 1 ou x = 1? Faut-il mettre des parenthèses après un if ou non ? Plus généralement, quelles sont les suites de symboles qui forment un programme? On dispose pour cela d'un outil efficace : la notion de grammaire formelle. À l'aide d'une grammaire, on peut décrire la syntaxe d'un langage de manière qui ne laisse pas de place à l'interprétation et qui rende possible l'écriture d'un programme qui reconnaît les programmes syntaxiquement corrects. Mais savoir ce qu'est un programme syntaxiquement correct ne suffit pas pour savoir ce qui se passe quand on exécute un tel programme. Quand on définit un langage de programmation, on doit don également décrire sa sémantique, c'est-à-dire ce qui se passe quand on exécute un programme. Deux langages peuvent avoir la même syntaxe mais des sémantiques différentes.} \cite{GDowekJJLevy2006}. Un langage de programmation est ainsi composé plusieurs éléments qui permettent à une machine de comprendre et d'excuter le programme sans ambiguité.
 
 En plus ces considérations, les langages se définissent par la ou les grands approches qu'ils choisissent de considérer ou favoriser. Ce sont les paradigmes. Dans la conférence intitulée \citetitle{GerardBerry2015} en \citedate{GerardBerry2015} à l'INRIA de Rennes, \citeauthor{GerardBerry2015} reviens sur le processus créatif derrière la création des nombreux langages. Au départ, on peut considérer deux langages A et B différents avec des approches fondamentalent uniques l'un par rapport à l'autre. Chacun forme sa propre communauté d'utilisateur. Puis arrive un nouveau langage C qui ne propose pas un nouveau point de vue mais reprend les concepts des deux langages précédents pour tenter tant bien que mal de les associéer. Ce dernier viens grapiller des utilisateurs aux deux premiers. Les langages A et B originaux se mettent donc à incorporer des concepts de l'autre afin de récupérer des utilisateurs et venir proposer de nouvelles améliorations à ses utilisateurs.\say{C'est-à-dire que vous avez des tas de gens qui ont des idées complètement baroques. Vous avez des tas de groupes d'utilisateurs avec des traditions totalement différentes dans des pays qui n'ont rien à voir [...] et la paysage deviens très joyeusement incompréhensible. Et c'est là vie, parce que c'est un espace de création. Difficile.} \cite{GerardBerry2015}. \citeauthor{GerardBerry2015} propose ainsi une vision caricaturale mais néanmoins descriptive derrière l'apparition et l'évolution des langages informatiques.
 
@@ -174,11 +212,12 @@ D'autre part, l'art est considéré comme un langage à part entière avec des �
 
 Dans ce cadre, une oeuvre se défini comme étant une chose matérielle ou immatérielle fabriquée par l'homme mais n'ayant aucune utilité fonctionnelle d'après Heidegger, expert de la pensée rationnelle et de la mécanique phylosophique. On peut citer l'exemple du tableau de René Magritte \citetitle{RMAgritte1929} qui cherche à représenter l'objet mais pas à l'utiliser, comme l'énonce la maxime \say{Ceci n'est pas une pipe} du tableau\cite{RMAgritte1929}. Le tableau en lui-même étonne, en jouant sur les règles implicites de la pensée et du rapport entretenu entre les choses, concepts et représentations.
 
-L'art étant par essence un langage mystérieux, influencé à la fois par la pensée de l'artiste et celle du spectateur, celui-ci est donc source de questionnement. Il invite au dialogue, intérieur ou social de par la variété des interrogations, des ressentis et des réactions qu'il suscite.
+L'art étant par essence un langage mystérieux, influencé à la fois par la pensée de l'artiste et celle du spectateur, celui-ci est donc source de questionnement. Il invite au dialogue, intérieur ou social de par la variété des interrogations, des ressentis et des réactions qu'il suscite. Du fait qu'il convoque les sentiments, l'art et la perception de l'art est avant tout personnelle.
 
 
 
 \subsection{La programmation en tant que pratique}
+
 \subsection{Le code comme medium}
 
 \section{Faire de l'art avec du code ?}
@@ -207,6 +246,7 @@ Typographie, estétique visuelle
 
 % glossary and acronyms
 \printglossary[type=\acronymtype]
+
 \printglossary
 
 
