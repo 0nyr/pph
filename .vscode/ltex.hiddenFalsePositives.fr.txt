@@ -1,0 +1,8 @@
+{"rule":"PLACE_DE_LA_VIRGULE","sentence":"^\\QCette définition n'est pas parfaite mais pose les éléments essentiels.\\E$"}
+{"rule":"HEURES","sentence":"^\\QRemerciements particuliers aux participants de la séance de débat, qui a eu lieu le jeudi 7 avril 2022 (10-12h) :\\E$"}
+{"rule":"XXieme","sentence":"^\\QIthan Velarde Requena - <ithan.velarde-requena@insa-lyon.fr> : Étudiant IF 3ème année.\\E$"}
+{"rule":"ON_ONT","sentence":"^\\QSelon la définition que l'on se donne et les exemples que l'on choisi de considérer, on peut remonter jusque dans l'antiquité avec les automates de Héron d'Alexandrie \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q.\\E$"}
+{"rule":"A_A_ACCENT2","sentence":"^\\QLe code source a lui-même la forme d'une tête de cochon.\\E$"}
+{"rule":"FR_SPELLING_RULE","sentence":"^\\QC'est ainsi que le programmeur doit souvent faire face à ces contraintes, par exemple en termes de vitesse d'écriture de disque, de temps de réaction ou de calcul, ou encore de l'espace mémoire disponible à différent niveau (cache, ram, disque ou cloud...).\\E$"}
+{"rule":"PLACE_DE_LA_VIRGULE","sentence":"^\\QCeci ne doit pas faire oublier que bien souvent, que ce soit dans la sphère de l'Open Source ou dans le cadre professionnel ou même amical, la programmation se pratique rarement seule mais plutôt en équipe.\\E$"}
+{"rule":"PLACE_DE_LA_VIRGULE","sentence":"^\\QLe code intermédiaire, exprimé d'une façon lisible pour un humain est souvent réalisé dans un langage de programmation mais aurait vraisemblablement une forme différente dans un autre langage de programmation.\\E$"}
