@@ -130,7 +130,13 @@ Néanmoins, la réponse à la problématique ne pouvant passer que par la compr�
 Enfin, il semble important de rappeler que ce rapport est issue d'un projet de PPH, c'est-à-dire d'un travail personnel de 4\ts{ème} année, sans créneau horaire réservé dans la formation et valorisé au minimum d'un unique crédit ECTS. Il est donc important de considérer que ce rapport n'a en aucune manière l'ambition de faire un tour exhaustif de la question auquel il tente d'apporter un éclairage. Enfin, il semble pertinent de mentionner que ce projet a très largement dépassé les quelque 25 heures conseillées pour la réalisation d'un PPH.
 
 \newpage
+\renewcommand{\contentsname}{Table des Matières}
 \tableofcontents
+
+\def\lstlistingautorefname{Cd.}
+\renewcommand{\lstlistingname}{Code}
+\renewcommand{\lstlistlistingname}{Codes et programmes}
+\lstlistoflistings
 
 \newpage
 \pagenumbering{arabic} % reset page numbering
@@ -339,7 +345,7 @@ Mais Knuth est loin d'être le seul exemple et on pensera à l'exemple du jeu vi
 
 Les exemples précédents sont des illustrations de l'importance que la forme peut avoir en programmation et plus généralement dans le processus de développement d'un projet informatique. L'esthétique peut recouvrir de nombreux éléments : langage, framework, librairie, \acrshort{ide}, moteur de jeu, typographie, choix des couleurs, etc. En outre, la programmation moderne impliquant le plus souvent la production d'un texte, on peut donc lui appliquer les mêmes techniques d'esthétique utilisées pour produire un texte par exemple en poésie. Il y a alors un parallèle naturel à faire entre texte littéraire ou poétique et texte de code informatique \cite{FCramer2001}.
 
-On pensera entre autre au \gls{calligramme} qui propose un rapport intéressant sur le rapport entre la forme et le fond. En programmation, il existe notamment un exemple célèbre de code en C dont le texte prends la forme d'un cercle et qui une fois compilé et exécuté, affiche un tore en 3D grâce à du texte. Les exemples similaires sont nombreux et bon nombres d'entre eux proviennent de l'\acrshort{ioccc}, une compétition internationale de programmation C dont l'objectif est de produire le code le plus surprenant et difficile à comprendre possible. De nombreux sites permettent de se rendre compte de l'ingéniosité et de la beauté réelles de ces codes. Parmi les nombreuses propositions, on trouvera entre autre :
+On pensera entre autre au \gls{calligramme} qui propose un rapport intéressant sur le rapport entre la forme et le fond. En programmation, il existe notamment un exemple célèbre de code en C dont le texte prends la forme d'un cercle et qui une fois compilé et exécuté, affiche un tore en 3D grâce à du texte \autoref{code:donut}. Les exemples similaires sont nombreux et bon nombres d'entre eux proviennent de l'\acrshort{ioccc}, une compétition internationale de programmation C dont l'objectif est de produire le code le plus surprenant et difficile à comprendre possible. De nombreux sites permettent de se rendre compte de l'ingéniosité et de la beauté réelles de ces codes. Parmi les nombreuses propositions, on trouvera entre autre :
 \begin{itemize}\label{exemples-ioccc}
     \item Une implémentation du moteur analytique de Charles Babbage qui calcule les factorielles, les PGCD et les facteurs d'un nombre ; par Sean Barrett \cite{SBarrett-Babble}
     \item Un programme qui converti l'entrée standard en code morse. Le code lui-même est composé essentiellement de DAH DIT DAH qui épelle un message en code morse ; par Jim Hague \cite{JHague-morse}
@@ -429,8 +435,8 @@ Afin de présenter l'exemple d'un processus de programmation créative donnant l
 
 \subsection{IOCCC codes}
 
-Célèble code C en forme de donut ; par Andy Sloane :
-\begin{lstlisting}[language=C, caption=C donut]
+Célèble code C en forme de donut ; par Andy Sloane (2006) :
+\begin{lstlisting}[language=C, caption={C donut}, label={code:donut}]
                  k;double sin()
          ,cos();main(){float A=
        0,B=0,i,j,z[1760];char b[
@@ -454,7 +460,7 @@ in(B),t=c*h*g-f*        e;int x=40+30*D*
              ..,--------,*/
 \end{lstlisting}
 
-A compiler avec gcc -o donut donut.c -lm. Nécessite un terminal ANSI ou VT100 pour fonctionner.
+A compiler avec la commande \verb|gcc -o donut donut.c -lm|. Nécessite un terminal ANSI ou VT100 pour fonctionner. Ce code produit un donut qui tourne en 3D, le tout affiché via des caractères ASCII à la manière de pixels. 
 
 
 \subsection{Codeworks}
@@ -463,7 +469,6 @@ A compiler avec gcc -o donut donut.c -lm. Nécessite un terminal ANSI ou VT100 p
 \printglossary[type=\acronymtype, title=Acronymes]
 
 \printglossary[title=Glossaire]
-
 
 \newpage
 \input{biblio.tex}
