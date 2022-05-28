@@ -75,6 +75,7 @@ sorting=none
 \newacronym{ioccc}{IOCCC}{International Obfuscated C Code Contest}
 \newacronym{foss}{FOSS}{Free and Open Source Software}
 \newacronym{pgp}{PGP}{Pretty Good Privacy}
+\newacronym{pgcd}{PGCD}{Plus Grand Commun Diviseur}
 %\input{glossaries.tex} % acronyms definitions, failed to make in work on a separate file!!!
 
 % custom commands
@@ -230,9 +231,11 @@ Pour le dictionnaire Larousse, le langage à donc de multiples définitions :
 
 Un langage de programmation est un outil pour le programmeur. En effet, tout programme étant par définition une suite d'instructions machines, soit de 0 et de 1, il n'est pas aisé pour un humain d'écrire ses programmes directement dans ce langage bas niveau. Cependant, il est possible d'écrire des programmes dans des langages humainement lisible, mais qui puisse être tout de même être transformé en langage machine pour être exécuté par un ordinateur. De mêmes que pour les langues parlées, il existe une multitude de langages de programmation. Comme le dit \citeauthor{BernardAmade2019} : \say{Il existe des pratiques de programmation très différentes, il existe aussi des langages de programmation qui proposent des modes d'approche très différentes} \cite{BernardAmade2019}. La variété des premières explique naturellement la multiplicité des seconds, en plus d'autres facteurs comme les évolutions de la recherche, l'histoire et jusqu'aux goûts, habitudes et usages des programmeurs.
 
-Le choix du ou des langages que l'on souhaite utiliser pour écrire un programme est donc un aspect important. Comme l'écrit \citeauthor{Dijkstra1976} dans son livre \citetitle{Dijkstra1976} en \citedate{Dijkstra1976}: \say{[...] one is immediately faced with the question: Which programming language am I going to use ?, and this is not a mere question of presentation! A most important, but also most elusive, aspect of any tool is its influence on the habits of those who train themselves in its use. If the tool is a programming language, this influence is, -whether we like it or not- an influence on our thinking habits.} \cite{Dijkstra1976}.
+Le choix du ou des langages que l'on souhaite utiliser pour écrire un programme est donc un aspect important. Comme l'écrit \citeauthor{Dijkstra1976} dans son livre \citetitle{Dijkstra1976} en \citedate{Dijkstra1976}: \say{[...] one is immediately faced with the question: Which programming language am I going to use ?, and this is not a mere question of presentation! A most important, but also most elusive, aspect of any tool is its influence on the habits of those who train themselves in its use. If the tool is a programming language, this influence is, -whether we like it or not- an influence on our thinking habits.} \cite{Dijkstra1976}. Le langage n'est donc pas qu'un simple outil. Son utilisation a non seulement un impact sur la création finale, mais influence aussi fortement le créateur. \citeauthor{KIverson-NotationAsToolOfThought} cite ainsi le mathématicien George Boole: \say{That language is an instrument of human reason, and not merely a medium for the expression of thought, is a truth generally admitted.} \cite{KIverson-NotationAsToolOfThought}. 
 
-La création d'un langage de programmation est en elle-même une tâche complexe. En effet, de très nombreux éléments rentrent en comptent dans la création d'un langage. Comment le rappelle les auteurs de \citetitle{GDowekJJLevy2006} : \say{Nous sommes encore très loin d'avoir trouvé un langage de programmation définitif. Presque chaque jour, de nouveaux langages sont créés et de nouvelles fonctionnalités sont ajoutées aux langages anciens. [...] La première chose que l'on doit décrire, quand on définit un langage de programmation, est sa syntaxe. Faut-il écrire x := 1 ou x = 1 ? Faut-il mettre des parenthèses après un if ou non ? Plus généralement, quelles sont les suites de symboles qui forment un programme ? On dispose pour cela d'un outil efficace : la notion de grammaire formelle. À l'aide d'une grammaire, on peut décrire la syntaxe d'un langage de manière qui ne laisse pas de place à l'interprétation et qui rende possible l'écriture d'un programme qui reconnaît les programmes syntaxiquement corrects. Mais savoir ce qu'est un programme syntaxiquement correct ne suffit pas pour savoir ce qui se passe quand on exécute un tel programme. Quand on définit un langage de programmation, on doit don également décrire sa sémantique, c'est-à-dire ce qui se passe quand on exécute un programme. Deux langages peuvent avoir la même syntaxe mais des sémantiques différentes.} \cite{GDowekJJLevy2006}. Un langage de programmation est ainsi composé plusieurs éléments qui permettent à une machine de comprendre et d'exécuter le programme sans ambiguïté.
+Dans son article \citetitle{KIverson-NotationAsToolOfThought}, \citeauthor{KIverson-NotationAsToolOfThought} décrit les principes et les considérations à garder en mémoire pour comprendre ce qu'est un langage de programmation. Il montre que c'est un instrument au raisonnement humain, en plus d'un moyen d'expression de la pensée. Il rappele l'importance des notations en mathématiques, et montre que les langages informatiques font preuve d'une plus grande universalité grâce à l'exécutabilité de leurs instructions. \say{... mathematical notation has serious deficiencies. In particular, it lacks universality, and must be interpreted differently according to the topic, according to the author, and even according to the immediate context. Programming languages, because they were designed for the purpose of directing computers, offer important advantages as tools of thought. Not only are they universal (general-purpose), but they are also executable and unambiguous. Executability makes it possible to use computers to perform extensive experiments on ideas expressed in a programming language, and the lack of ambiguity makes possible precise thought experiments.}. Il rappele quand même que par sa rigidité, un langage de programmation offre évidemment moins de souplesse et de possibilités que les mathématiques. Ce problème n'en n'est pas vraiment un puisqu'on pourra toujours utiliser les mathématiques pour décrire un programme, et qu'en multipliant les langages de programmation, ont leur permet ainsi de se spécialiser dans la réalisation de certaines tâches.
+
+La création d'un langage de programmation est donc en elle-même une tâche complexe. En effet, de très nombreux éléments doivent être pris en compte. Comment le rappelle les auteurs de \citetitle{GDowekJJLevy2006} : \say{Nous sommes encore très loin d'avoir trouvé un langage de programmation définitif. Presque chaque jour, de nouveaux langages sont créés et de nouvelles fonctionnalités sont ajoutées aux langages anciens. [...] La première chose que l'on doit décrire, quand on définit un langage de programmation, est sa syntaxe. Faut-il écrire x := 1 ou x = 1 ? Faut-il mettre des parenthèses après un if ou non ? Plus généralement, quelles sont les suites de symboles qui forment un programme ? On dispose pour cela d'un outil efficace : la notion de grammaire formelle. À l'aide d'une grammaire, on peut décrire la syntaxe d'un langage de manière qui ne laisse pas de place à l'interprétation et qui rende possible l'écriture d'un programme qui reconnaît les programmes syntaxiquement corrects. Mais savoir ce qu'est un programme syntaxiquement correct ne suffit pas pour savoir ce qui se passe quand on exécute un tel programme. Quand on définit un langage de programmation, on doit don également décrire sa sémantique, c'est-à-dire ce qui se passe quand on exécute un programme. Deux langages peuvent avoir la même syntaxe mais des sémantiques différentes.} \cite{GDowekJJLevy2006}. Un langage de programmation est ainsi composé plusieurs éléments qui permettent à une machine de comprendre et d'exécuter le programme sans ambiguïté.
 
 En outre, les langages se définissent par la ou les grandes approches qu'ils choisissent de considérer ou favoriser. Ce sont les paradigmes. Dans la conférence intitulée \citetitle{GerardBerry2015} en \citedate{GerardBerry2015} à l'INRIA de Rennes, \citeauthor{GerardBerry2015} reviens sur le processus créatif derrière la création des nombreux langages. Au départ, on peut considérer deux langages A et B différents avec des approches fondamentalement uniques l'un par rapport à l'autre. Chacun forme sa propre communauté d'utilisateur. Puis arrive un nouveau langage C qui ne propose pas un nouveau point de vue, mais reprend les concepts des deux langages précédents pour tenter tant bien que mal de les associer. Ce dernier vient grappiller des utilisateurs aux deux premiers. Les langages A et B originaux se mettent donc à incorporer des concepts de l'autre afin de récupérer des utilisateurs et venir proposer de nouvelles améliorations à ses utilisateurs. \say{C'est-à-dire que vous avez des tas de gens qui ont des idées complètement baroques. Vous avez des tas de groupes d'utilisateurs avec des traditions totalement différentes dans des pays qui n'ont rien à voir [...] et le paysage deviens très joyeusement incompréhensible. Et c'est la vie, parce que c'est un espace de création. Difficile.} \cite{GerardBerry2015}. \citeauthor{GerardBerry2015} propose ainsi une vision caricaturale mais néanmoins descriptive derrière l'apparition, l'évolution et le foisonnement des langages informatiques.
 
@@ -435,6 +438,8 @@ Afin de présenter l'exemple d'un processus de programmation créative donnant l
 
 \subsection{IOCCC codes}
 
+L'\acrshort{ioccc}, ou \acrlong{ioccc} est un concours annuel bien connu des programmeurs de C. Initialement créé par Landon Curt Noll et Larry Bassel en 1984, il s'agit d'un concours dans lequel l'objectif et de faire le programme le plus incompréhensible possible. Avec ses règles simple, et la créativité des programmeurs, il est devenu un concours très populaire au fil des années. En outre, il serait le plus vieux concours d'internet toujours actif \cite{IOCCC-readme-github}. Parmi les propositions notables, en plus ce celles présentées ci-dessous, on mentionnera par exemple un programme composé de 0 octets, un système d'exploitation, un simulateur de vol, ou un jeu d'échec complet en quelques centaines de caractères seulements (voir \href{https://en.wikipedia.org/wiki/International_Obfuscated_C_Code_Contest}{l'article Wikipedia} et le \href{https://github.com/ioccc-src/winner}{repo GihHub des gagnants}) \cite{Wikipedia-IOCCC} \cite{IOCCC-homepage}.
+
 Célèble code C en forme de donut ; par Andy Sloane (2006) :
 \begin{lstlisting}[language=C, caption={C donut}, label={code:donut}]
                  k;double sin()
@@ -462,10 +467,89 @@ in(B),t=c*h*g-f*        e;int x=40+30*D*
 
 A compiler avec la commande \verb|gcc -o donut donut.c -lm|. Nécessite un terminal ANSI ou VT100 pour fonctionner. Ce code produit un donut qui tourne en 3D, le tout affiché via des caractères ASCII à la manière de pixels. 
 
+Le programme Babble, par Sean Barrett (1992) :
+\begin{lstlisting}[language=C, caption={Babble}, label={code:babble}]
+#define A(c,a,b) t=b;t+=a;_(c)
+#define	B(b,a) P(u,a)t=0;t-=a;R t+=u;t+=1;t/=2;_(b)
+#define b(x) x(g)
+#define C ;main(argc,argv)char**argv;{for(;!w;){q=0;l
+#define c(y) x
+#define D(c,a,b) t=a;t/=b;_(c)
+#define d(x) S(x,x,1)
+#define E(a,d) t=d;t-=p;t*=r;t*=a;p+=t;t=1;t-=a;r*=t;
+#define e(x) y
+#define f(x) x(e)
+#define G(x,y) Q(x,atoi(argv[y]))
+#define g(x) x(b)
+#define H Q(w,1)Q(p,0)r=0;
+#define h(x) x(c)
+#define i(c,a,b) a(b,b,c)
+#define J(x) Q(p,x)r=0;
+#define j(x) Q(f(g),x)
+#define K(x) Q(x,argc)
+#define k(x) S(a,y,x)
+#define L(x) u=p;u-=x;t=u;t*=u;R r+=2;r-=t;r/=2;
+#define l L(q) q+=1;
+#define M(c,a,b) t=a;t*=b;_(c)
+#define m(x) x(a,a)
+#define n(x) x(a,y)
+#define O(c,a,b) t=b;t+=1;t+=a;t/=2;Q(c,t)
+#define o(x,y) M(x,x,y)
+#define P(b,a) t=a;R _(b)
+#define R t+=2047;t/=2048;t+=8191;t/=8192;
+#define Q(a,b) t=b;_(a)
+#define S(c,a,b) t=a;t-=b;_(c)
+#define T }
+#define U(c,a,b) u=b;t=b;t-=1;t*=r;t+=1;b=t;t=a;t/=b;b=u;_(c)
+#define V int t,u,q,p=0,r,w=0,
+#define X(y) printf("%x\n",y);
+#define Z(a,d) t=p;t-=d;t*=a;t+=d;_(p)r*=a;
+#define _(a) t-=a;t*=r;a+=t;
+
+V a,x,y,s C
+
+	    G(f(g),q)G(          g(h),2)n(B)Z(a,4)n(
+	P)E(a,1)j(2989)H l k     (1)m(B)Z(a,6)l k(h(b))
+      B(s,a             )m(P)        Z(s             ,8)E
+    (a,q                   )Q(       s,h               (g)
+   )Q(                               f(c                ),f
+  (g)                                )j(                s)l
+  i(b                                (h)                ,S,
+ f(b                                 ))n               (B)
+ E(a                                 ,2)             J(8)
+l j(                                x)Q(x,1)l n(P)Z(a,8
+)o(x                                ,g(f))d(f(e))J(5)l j
+(x)l                                 d(x              )S(a
+ ,x,                                 1)m                (B)
+  Z(a                                ,10                 )U(
+  a,y                                ,x)                 o(a
+   ,x)                               k(a                 )m(
+    P)E(                   a,7)      l j                (0)
+      Q(s,1            )l D(a        ,x,              q)o(
+	a,q)S(a,h(g),a)i(s,       M,a)i(a,A,g(f))i(q,D,x
+	    )o(s,16)B(a          ,x)E(a,9)H l j(2766)H
+
+T  X(b(f))
+\end{lstlisting}
+
+Ce programme est franchement difficile à comprendre. C'est un programme mathématique pour faire des calculs de factorielles ou de plus grand facteur commun (\acrshort{pgcd}) entre deux nombres. \say{babble is a translator from a pseudo-assembly language into a subset of C suitable for execution on Charles Babbage's Analytical Engine.} \cite{SBarrett-Babble}.
+
+\begin{lstlisting}[language=C, caption={C donut}, label={code:donut}]
+
+\end{lstlisting}
+
+\begin{lstlisting}[language=C, caption={C donut}, label={code:donut}]
+
+\end{lstlisting}
+
+\begin{lstlisting}[language=C, caption={C donut}, label={code:donut}]
+
+\end{lstlisting}
 
 \subsection{Codeworks}
 
 % glossary and acronyms
+\newpage
 \printglossary[type=\acronymtype, title=Acronymes]
 
 \printglossary[title=Glossaire]
