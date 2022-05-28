@@ -88,7 +88,8 @@ sorting=none
 
 % code 
 \usepackage{listings}
-
+\usepackage{hyphenat} % fix "overfull hbox" with slicing words using hyphenation
+\hyphenation{hy-phen-a-tion} % indicate all 3 permissible hyphenation points
 
 % document content
 \begin{document}
@@ -390,7 +391,7 @@ Les sous-sections suivantes viennent compléter sous différents aspects les pro
 \subsection{Reconsidérer l'argumentation}
 La lecture du rapport précédent n'a peut-être pas suffit à satisfaire le lecteur dubitatif. Et c'est bien normal. Comme on a pu s'en rendre compte, discuter d'art, et de frontière entre art et non-art impose la considération d'une myriade d'éléments. De la philosophie de l'art à l'histoire des arts, en passant par la compréhension et la sensibilité personnelle de chacun, il n'est pas aisé de dégager des consensus sur le sujet. Quel rapport entre art et utilité ? Quid de la relation entre œuvre et art ? Qu'entend-on par code ? Pour ces différentes questions, et bien d'autre encore, le rapport précédent a tenté de proposer des idées de réponses et des approches de réflexions.
 
-Le rapport a pris pour parti de suivre une approche argumentative classique en prenant pour thèse que le code pouvait être de l'art. En reconsidérant l'argumentation faite dans le rapport précédent, on peut se rendre compte de l'établissement des propositions suivantes comme vraies :
+Le rapport a pris pour parti de suivre une approche argumentative classique en prenant pour thèse que le code pouvait être de l'art. En reconsidérant l'argumenta\hyp{}tion faite dans le rapport précédent, on peut se rendre compte de l'établissement des propositions suivantes comme vraies :
 \begin{itemize}
     \item Une chose peut être considérée comme artistique lorsqu'elle sussiste des sentiments chez ceux qui en font l'expérience sensible ou intellectuelle ; lorsque l'on attribue à cette chose des qualités qui dépassent sa simple nature ; ou lorsqu'elle est une expression de la pensée, de la culture, d'une vision et du talent de son créateur. On pourra alors dire que cette chose est une œuvre d'art.
     \item Un processus créatif peut être considéré comme artistique lorsqu'il peut conduire à la création d'une œuvre d'art ; ou lorsqu'il est une expression de la pensée, de la culture, d'une vision et du talent de son créateur. On pourra alors dire que ce processus est un art.
@@ -440,8 +441,12 @@ Afin de présenter l'exemple d'un processus de programmation créative donnant l
 
 L'\acrshort{ioccc}, ou \acrlong{ioccc} est un concours annuel bien connu des programmeurs de C. Initialement créé par Landon Curt Noll et Larry Bassel en 1984, il s'agit d'un concours dans lequel l'objectif et de faire le programme le plus incompréhensible possible. Avec ses règles simple, et la créativité des programmeurs, il est devenu un concours très populaire au fil des années. En outre, il serait le plus vieux concours d'internet toujours actif \cite{IOCCC-readme-github}. Parmi les propositions notables, en plus ce celles présentées ci-dessous, on mentionnera par exemple un programme composé de 0 octets, un système d'exploitation, un simulateur de vol, ou un jeu d'échec complet en quelques centaines de caractères seulements (voir \href{https://en.wikipedia.org/wiki/International_Obfuscated_C_Code_Contest}{l'article Wikipedia} et le \href{https://github.com/ioccc-src/winner}{repo GihHub des gagnants}) \cite{Wikipedia-IOCCC} \cite{IOCCC-homepage}.
 
+% use of \itshape instead of \textit for \hbox problem
+Les codes et programmes ci-dessous proviennent du site de l'\acrshort{ioccc} \\(\href{https://www.ioccc.org/}{www.ioccc.org}) et de la collection personnelle d'\citeauthor{MEnriqueBermudez-ObfuscatedCCode} \\(\href{https://www.cise.ufl.edu/~manuel/obfuscate/obfuscate.html}{www.cise.ufl.edu}). Tous ces codes sont sous license {\itshape Creative Commons Attribution\hyp{}ShareAlike 3.0 Unported License} : \say{Copyright (c) 1986, Landon Curt Noll \& Larry Bassel. All Rights Reserved.  Permission for personal, educational or non-profit use is granted provided this this copyright and notice are included in its entirety and remains unaltered.  All other uses must receive prior permission in writing from both Landon Curt Noll and Larry Bassel. }. Pour plusieurs de ces programmes, l'intégrité du code n'a toujours pu être respectée pour des raisons d'affichage et de lisibilité. Il a parfois fallu changer légèrement la présentation ou enlever des lignes (replacées par [...]) afin de pouvoir tout afficher. Ainsi, il vaut mieux considérer les exemples présentés comme des illustrations quelque peu altérés des originaux. Ces exemples doivent servir d'entrée avant d'aller télécharger les codes présentés et bien d'autres encore sur les sites mentionnés. En outre, une part important du plaisir provient aussi de la découverte, de la compilation et de l'exécution de ces codes.
+
+\newpage
 Célèble code C en forme de donut ; par Andy Sloane (2006) :
-\begin{lstlisting}[language=C, caption={C donut}, label={code:donut}]
+\begin{lstlisting}[language=C, caption={Donut}, label={code:donut}]
                  k;double sin()
          ,cos();main(){float A=
        0,B=0,i,j,z[1760];char b[
@@ -465,44 +470,49 @@ in(B),t=c*h*g-f*        e;int x=40+30*D*
              ..,--------,*/
 \end{lstlisting}
 
-A compiler avec la commande \verb|gcc -o donut donut.c -lm|. Nécessite un terminal ANSI ou VT100 pour fonctionner. Ce code produit un donut qui tourne en 3D, le tout affiché via des caractères ASCII à la manière de pixels. 
+A compiler avec la commande \verb|gcc -o donut donut.c -lm|. Nécessite un terminal ANSI ou VT100 pour fonctionner \cite{ASloane-donut}. Ce code produit un donut qui tourne en 3D, le tout affiché via des caractères ASCII à la manière de pixels. Derrière ce programme, on trouve un calcul d'illumination en fonction de la rotation du tore, vie un calcul de projection. Des explications sur le code, ainsi que celui-ci en version non-obfusquée sont disponibles \href{https://medium.com/analytics-vidhya/the-donuts-code-the-math-behind-6d473eaec61d}{ici (medium.com)} et \href{https://www.a1k0n.net/2011/07/20/donut-math.html}{là (a1k0n.net, notes de l'auteur)}. Il existe de nombreux clones de ce programme, ainsi qu'une version améliorée, baptisée \textit{Donut Mark II} par \citeauthor{ASloane-donut} (\href{https://www.a1k0n.net/2006/09/20/obfuscated-c-donut-2.html}{Embellishing the donut: an old-school CG cliche}).
 
-Le programme Babble, par Sean Barrett (1992) :
+\newpage
+Un morceau de programme faisant usage du morse ; par Jim Hague (1986):
+\begin{lstlisting}[language=C, caption={Morse}, label={code:morse}]
+#define	DIT	(
+#define	DAH	)
+#define	__DAH	++
+#define DITDAH	*
+#define	DAHDIT	for
+#define	DIT_DAH	malloc
+#define DAH_DIT	gets
+#define	_DAHDIT	char
+_DAHDIT _DAH_[]="ETIANMSURW[...]g7c8a90l?e'b.s;i,d:"
+;main			DIT			DAH{_DAHDIT
+[...]
+DITDAH			_DIT_,DITDAH		DIT_DAH DIT
+DAH,DITDAH		DAH_DIT DIT		DAH;DAHDIT
+[...]
+__DAH;_DIT==DAH_DIT	DIT _DIT		DAH;__DIT
+[...]
+DAH_;__DIT		DIT			DITDAH
+[...]
+DIT' 'DAH,DAH_ __DAH	DAH DAHDIT		DIT
+[...]
+DITDAH _DIT_!=DIT	DITDAH DAH_>='a'?	DITDAH
+DAH_&223:DITDAH		DAH_ DAH DAH;		DIT
+DITDAH			DIT_ DAH __DAH,_DIT_	__DAH DAH
+[...]
+DAH;}_DAH DIT DIT_	DAH{			__DIT DIT
+[...]
+\end{lstlisting}
+Ce programme a été sélectionné pour la collection de t-shirt de 1987. Il a obtenu la mention \textit{Worst abuse of the C preprocessor}. Note des juges : \say{Think morse code when you ponder this program. Note how use of
+similar variables can be obfuscating! The author notes that this
+program implements the international morse standard. Now for extra
+credit, what morse message does the program spell out?} \cite{JHague-morse}.
+
+\newpage
+Un morceau du programme Babble, par Sean Barrett (1992). :
 \begin{lstlisting}[language=C, caption={Babble}, label={code:babble}]
 #define A(c,a,b) t=b;t+=a;_(c)
 #define	B(b,a) P(u,a)t=0;t-=a;R t+=u;t+=1;t/=2;_(b)
-#define b(x) x(g)
-#define C ;main(argc,argv)char**argv;{for(;!w;){q=0;l
-#define c(y) x
-#define D(c,a,b) t=a;t/=b;_(c)
-#define d(x) S(x,x,1)
-#define E(a,d) t=d;t-=p;t*=r;t*=a;p+=t;t=1;t-=a;r*=t;
-#define e(x) y
-#define f(x) x(e)
-#define G(x,y) Q(x,atoi(argv[y]))
-#define g(x) x(b)
-#define H Q(w,1)Q(p,0)r=0;
-#define h(x) x(c)
-#define i(c,a,b) a(b,b,c)
-#define J(x) Q(p,x)r=0;
-#define j(x) Q(f(g),x)
-#define K(x) Q(x,argc)
-#define k(x) S(a,y,x)
-#define L(x) u=p;u-=x;t=u;t*=u;R r+=2;r-=t;r/=2;
-#define l L(q) q+=1;
-#define M(c,a,b) t=a;t*=b;_(c)
-#define m(x) x(a,a)
-#define n(x) x(a,y)
-#define O(c,a,b) t=b;t+=1;t+=a;t/=2;Q(c,t)
-#define o(x,y) M(x,x,y)
-#define P(b,a) t=a;R _(b)
-#define R t+=2047;t/=2048;t+=8191;t/=8192;
-#define Q(a,b) t=b;_(a)
-#define S(c,a,b) t=a;t-=b;_(c)
-#define T }
-#define U(c,a,b) u=b;t=b;t-=1;t*=r;t+=1;b=t;t=a;t/=b;b=u;_(c)
-#define V int t,u,q,p=0,r,w=0,
-#define X(y) printf("%x\n",y);
+[...]
 #define Z(a,d) t=p;t-=d;t*=a;t+=d;_(p)r*=a;
 #define _(a) t-=a;t*=r;a+=t;
 
@@ -521,9 +531,7 @@ l j(                                x)Q(x,1)l n(P)Z(a,8
 )o(x                                ,g(f))d(f(e))J(5)l j
 (x)l                                 d(x              )S(a
  ,x,                                 1)m                (B)
-  Z(a                                ,10                 )U(
-  a,y                                ,x)                 o(a
-   ,x)                               k(a                 )m(
+[...]
     P)E(                   a,7)      l j                (0)
       Q(s,1            )l D(a        ,x,              q)o(
 	a,q)S(a,h(g),a)i(s,       M,a)i(a,A,g(f))i(q,D,x
@@ -532,20 +540,74 @@ l j(                                x)Q(x,1)l n(P)Z(a,8
 T  X(b(f))
 \end{lstlisting}
 
-Ce programme est franchement difficile à comprendre. C'est un programme mathématique pour faire des calculs de factorielles ou de plus grand facteur commun (\acrshort{pgcd}) entre deux nombres. \say{babble is a translator from a pseudo-assembly language into a subset of C suitable for execution on Charles Babbage's Analytical Engine.} \cite{SBarrett-Babble}.
+D'après les notes même de l'auteur : \say{babble is a translator from a pseudo-assembly language into a subset of C suitable for execution on Charles Babbage's Analytical Engine. Or rather, the \#defines in babble are that translator. The rest of babble is a babble program.} \cite{SBarrett-Babble}. C'est un programme capable de faire des calculs de factorielles ou de plus grand facteur commun (\acrshort{pgcd}) entre deux nombres. La forme du programme, CB, est une double référence, à Charles Baddage mais aussi à Charles Barrett : \say{babble was originally named 'cb', for obvious reasons, and is dedicated to the memory of Charles Barrett} \cite{SBarrett-Babble}.
 
-\begin{lstlisting}[language=C, caption={C donut}, label={code:donut}]
-
+\newpage
+Morceau d'un programme en palindrome ; par Merlyn LeRoy (Brian Westley), (1987) :
+\begin{lstlisting}[language=C, caption={Palindrome}, label={code:palindrome}]
+				char rahc
+				   [ ]
+				    =
+				  "\n/"
+				    ,
+				redivider
+				   [ ]
+				    =
+		       "Able was I ere I saw elbA"
+				    ,
+				    *
+			     deliver,reviled
+				    =
+				   1+1
+				    ,
+			       niam ; main
+				   ( )
+				  {/*\}
+				   \*/
+				 int tni
+				    =
+				   0x0
+				    ,
+			     rahctup,putchar
+				   ( )
+		           ,LACEDx0 = 0xDECAL,
+				rof ; for
+			     (;(int) (tni);)
+			       (int) (tni)
+			  = reviled ; deliver =
+				redivider
 \end{lstlisting}
+\say{Every source code line is a palindrome!} \cite{MEnriqueBermudez-ObfuscatedCCode}. Ce programme est un vrai \gls{palindrome} ce qui est assez étonnant pour un programme en C. Il a logiquement obtenu la mention \textit{Best Layout}. Note des juges : \say{Line by line symmetry performed better than any C beautifier.  Think
+of if it as a C ink blot.  :-)}.
 
-\begin{lstlisting}[language=C, caption={C donut}, label={code:donut}]
-
+\newpage
+Un autre exemple de code C célèbre de l'IOCCC ; par Merlyn LeRoy (Brian Westley), (1988) :
+\begin{lstlisting}[language=C, caption={Pi circle (westley 1988)}, label={code:pi-circle}]
+#define _ -F<00||--F-OO--;
+int F=00,OO=00;main()
+    {F_OO();printf("%1.3f\n",4.*-F/OO/OO);}F_OO()
+{
+            _-_-_-_
+       _-_-_-_-_-_-_-_-_
+    _-_-_-_-_-_-_-_-_-_-_-_
+  _-_-_-_-_-_-_-_-_-_-_-_-_-_
+ _-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+ _-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+ _-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+ _-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+  _-_-_-_-_-_-_-_-_-_-_-_-_-_
+    _-_-_-_-_-_-_-_-_-_-_-_
+        _-_-_-_-_-_-_-_
+            _-_-_-_
+}
 \end{lstlisting}
+Ce code affiche \verb|3.141| une fois compilé et exécuté. Malheureusement le code ne compile plus directement en C ANSI avec GCC sans modifications. On peut alors utiliser la version modifiée de Misha Dynin qui compile avec \verb|gcc|. Voici le commentaire de \citeauthor{MEnriqueBermudez-ObfuscatedCCode} : \say{A unique program layout and the most unusual method of calculating pi I have ever seen. The source code is a circle and the program works by calculating its own area and diameter, and then doing a division to approximate pi!! Very bizzare.} \cite{MEnriqueBermudez-ObfuscatedCCode}.
 
-\begin{lstlisting}[language=C, caption={C donut}, label={code:donut}]
-
-\end{lstlisting}
-
+\newpage
 \subsection{Codeworks}
 
 % glossary and acronyms
