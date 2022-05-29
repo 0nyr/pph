@@ -430,9 +430,91 @@ Considérons maintenant un exemple concret. %continue here
 % démonstration par l'absurde, tenter de montrer que le code n'est pas de l'art.
 
 \subsection{(Crêpe\doublep)\doublem ou l'art de l'offuscation}
-Afin de présenter l'exemple d'un processus de programmation créative donnant lieu à un code pouvant être considéré comme de l'art, je vais maintenant présenter une expérience personnelle. La programmation d'un code intitulé \textit{(Crêpe\doublep)\doublem} dans le langage C\p\p. Malgré \m il faut dire. 
-
+Afin de présenter l'exemple d'un processus de programmation créative donnant lieu à un code pouvant être considéré comme de l'art, je vais maintenant présenter une expérience personnelle. La programmation d'un code intitulé \textit{(Crêpe\doublep)\doublem} dans le langage C\p\p. 
 % consigne, choix du langage, processus de création, réception. 
+
+J'ai ainsi participé à la 8\ts{ème} édition de \textit{MovaiCode}, un concours organisé par l'entreprise Coddity, et qui a lieu sur GitHub. L'objectif de cette édition spéciale Chandeleur était le suivant: \say{retirer le dernier élément d'une liste de strings} \cite{movaicode-enonce8}. Ici, les chaînes de caractères sont censées représenter des crèpes. L'objectif initial était donc simple, et sert avant-tout de prétexte à une démonstration de créativité de la part des candidats. Par exemple, certains candidats ont tentés de proposer la fonction avec le moins de caractères possible. En C\p\p \space avec les \textit{lambda expressions}, la solution représente seulement 14 caractères : \verb|[&]{a.p();}();|.
+
+Mais je souhaitais faire quelque chose de plus créatif. En particulier, je venais de tomber sur une vidéo de Bisqwit sur l'obfuscation de code en C \cite{Bisqwit-obfuscatedCCode} qui m'avait donné envie d'essayer cette forme de programmation créative. Cette vidéo explique bien les bases à garder en tête lors de la création de code obfusqué.
+
+\newpage
+Voici donc le code que j'ai pu proposer \href{https://github.com/CoddityTeam/movaicode/issues/183}{MovaiC++ pancakes : (Crêpe\doublep)\doublem , ou le côté obscur de la force} :
+\begin{lstlisting}[language=C++, caption={(Crêpe\doublep)\doublem}, label={code:crepepp}]
+Crepe * MangerUneCrepe(Crepe * cpp) {
+    if(cpp==nullptr)return nullptr;
+    Crepe*l=cpp;Crepe*b=nullptr;
+    while(l->next!=nullptr){b=l;
+    l=l->next;}std::string p=l->crepe;
+    std::vector<std::string>t={"rvbsd",
+    "optmdu","ljdm","bbqblfk","kbqenor",
+    "bi`nojfonor","njfonor","splbsfr",
+    "rpib","bvqsx","dyomnthg","ujsshpk",
+    "rbupm","mfhhd","rbamd","bbhmkpty","omtunohvl"};
+    auto L0=[&](std::string&str)
+    {char buffer[str.length()];
+    std::copy(str.begin(),str.end(),buffer);
+    for(int i=0;i<(int)str.length();
+    i++){(i%2==0)?buffer[i]++:buffer[i]--;}
+    auto L1=[&](char* a,int size)
+    {int i;std::string s="";for(i=0;i<size;i++)
+    {s=s+a[i];}return s;};
+    return L1(buffer,str.length());};auto L2=[&]()
+    {return rand()%(t.size()-3)+3;};
+    p+=L0(t[0])+" "+L0(t[L2()])+", "
+    +L0(t[L2()])+", "+L0(t[1])+" "+ L0(t[L2()])
+    +" "+L0(t[2])+" !";
+    std::cout << p << std::endl; delete l;
+    (b == nullptr) ? cpp = nullptr : b->next 
+    = nullptr;return cpp;
+}
+\end{lstlisting}
+Afin de le faire rentret correctement dans ce document, j'ai du modifier certaines lignes et la présentation de la fonction. Pour bien apprécier ce code, il peut être intéressant de connaître plus en détail le processus de création que j'ai suivi, et que je détaille sur GitHub :
+
+L'idée de base de ce code est assez simple. Il s'agit de construire une liste chaînée basique. Une fois la liste chaînée de \verb|Crepe*| construite, on peut alors appeler la fonction \verb|Crepe * MangerUneCrepe(Crepe * cpp)|. On sélectionne alors 4 ingrédients aléatoires sous forme de \verb|std::string| afin de prépaper la crêpe avant de la manger en affichant le message de la crêpe et de ses ingrédients. Ne reste qu'à \verb|delete| la dernière crêpe et à modifier le pointeur de la crêpe précédente (\verb|nullptr|) (plus quelques cas de bord à gérer). Quand on appelera la fonction qui permet de manger une crêpe, on aura donc un message aléatoire de la forme :
+
+\verb|crêpe lardons, soja, météorite supplément béton !|
+
+La liste des ingrédients est la suivante :
+\begin{lstlisting}[language=C++]
+std::vector<std::string> crepeToppings = {
+    "sucre",
+    "chocolat",
+        ...
+    "meteorite",
+    "regolite"
+};
+\end{lstlisting}
+
+Comme je veux faire du code "obfuscated", je ne veux pas qu'on puisse lire facilement le code, et encore moins les ingrédients, car ceux-ci sont parfois surprenants et je veux laisser la surprise intacte.
+
+Je crée alors un petit programme \verb|CLI obfuscator| qui va me permettre d'obfus-quer simplement des strings (par défaut), mais aussi de les désofusquer.
+\begin{lstlisting}[language=sh]
+(base)  <onyr@kenzae> <obfuscator>> ./main hello world
+<<<< You have entered 3 arguments >>>>
+<<<< OBFUSCATE MODE >>>>
+
+ + arg: hello
+-----> Obfuscated: gfkmn
+-----> Deobfuscated: hello
+ + arg: world
+-----> Obfuscated: vpqmc
+-----> Deobfuscated: world
+\end{lstlisting}
+
+En passant le flag -d, le programme deobfuscate les paramètres :
+\begin{lstlisting}[language=sh]
+(base)  <onyr@kenzae> <obfuscator>> ./main -d gfkmn vpqmc
+<<<< You have entered 4 arguments >>>>
+<<<< DE-OBFUSCATE MODE >>>>
+
+    + arg: gfkmn
+-----> Deobfuscated: hello
+-----> Obfuscated: gfkmn
+    + arg: vpqmc
+-----> Deobfuscated: world
+-----> Obfuscated: vpqmc
+\end{lstlisting}
+
 
 \newpage
 \section{Appendices}
@@ -442,7 +524,7 @@ Afin de présenter l'exemple d'un processus de programmation créative donnant l
 L'\acrshort{ioccc}, ou \acrlong{ioccc} est un concours annuel bien connu des programmeurs de C. Initialement créé par Landon Curt Noll et Larry Bassel en 1984, il s'agit d'un concours dans lequel l'objectif et de faire le programme le plus incompréhensible possible. Avec ses règles simple, et la créativité des programmeurs, il est devenu un concours très populaire au fil des années. En outre, il serait le plus vieux concours d'internet toujours actif \cite{IOCCC-readme-github}. Parmi les propositions notables, en plus ce celles présentées ci-dessous, on mentionnera par exemple un programme composé de 0 octets, un système d'exploitation, un simulateur de vol, ou un jeu d'échec complet en quelques centaines de caractères seulements (voir \href{https://en.wikipedia.org/wiki/International_Obfuscated_C_Code_Contest}{l'article Wikipedia} et le \href{https://github.com/ioccc-src/winner}{repo GihHub des gagnants}) \cite{Wikipedia-IOCCC} \cite{IOCCC-homepage}.
 
 % use of \itshape instead of \textit for \hbox problem
-Les codes et programmes ci-dessous proviennent du site de l'\acrshort{ioccc} \\(\href{https://www.ioccc.org/}{www.ioccc.org}) et de la collection personnelle d'\citeauthor{MEnriqueBermudez-ObfuscatedCCode} \\(\href{https://www.cise.ufl.edu/~manuel/obfuscate/obfuscate.html}{www.cise.ufl.edu}). Tous ces codes sont sous license {\itshape Creative Commons Attribution\hyp{}ShareAlike 3.0 Unported License} : \say{Copyright (c) 1986, Landon Curt Noll \& Larry Bassel. All Rights Reserved.  Permission for personal, educational or non-profit use is granted provided this this copyright and notice are included in its entirety and remains unaltered.  All other uses must receive prior permission in writing from both Landon Curt Noll and Larry Bassel. }. Pour plusieurs de ces programmes, l'intégrité du code n'a toujours pu être respectée pour des raisons d'affichage et de lisibilité. Il a parfois fallu changer légèrement la présentation ou enlever des lignes (replacées par [...]) afin de pouvoir tout afficher. Ainsi, il vaut mieux considérer les exemples présentés comme des illustrations quelque peu altérés des originaux. Ces exemples doivent servir d'entrée avant d'aller télécharger les codes présentés et bien d'autres encore sur les sites mentionnés. En outre, une part important du plaisir provient aussi de la découverte, de la compilation et de l'exécution de ces codes.
+Les codes et programmes ci-dessous proviennent du site de l'\acrshort{ioccc} \\(\href{https://www.ioccc.org/}{www.ioccc.org}) et de la collection personnelle d'\citeauthor{MEnriqueBermudez-ObfuscatedCCode} \\(\href{https://www.cise.ufl.edu/~manuel/obfuscate/obfuscate.html}{www.cise.ufl.edu}). Tous ces codes sont sous license {\itshape Creative Commons Attribution\hyp{}ShareAlike 3.0 Unported License} : \say{Copyright (c) xxxx, Landon Curt Noll \& Larry Bassel. All Rights Reserved.  Permission for personal, educational or non-profit use is granted provided this this copyright and notice are included in its entirety and remains unaltered.  All other uses must receive prior permission in writing from both Landon Curt Noll and Larry Bassel. }. Pour plusieurs de ces programmes, l'intégrité du code n'a toujours pu être respectée pour des raisons d'affichage et de lisibilité. Il a parfois fallu changer légèrement la présentation ou enlever des lignes (replacées par [...]) afin de pouvoir tout afficher. Ainsi, il vaut mieux considérer les exemples présentés comme des illustrations quelque peu altérés des originaux. Ces exemples doivent servir d'entrée avant d'aller télécharger les codes présentés et bien d'autres encore sur les sites mentionnés. En outre, une part important du plaisir provient aussi de la découverte, de la compilation et de l'exécution de ces codes.
 
 \newpage
 Célèble code C en forme de donut ; par Andy Sloane (2006) :
@@ -543,7 +625,7 @@ T  X(b(f))
 D'après les notes même de l'auteur : \say{babble is a translator from a pseudo-assembly language into a subset of C suitable for execution on Charles Babbage's Analytical Engine. Or rather, the \#defines in babble are that translator. The rest of babble is a babble program.} \cite{SBarrett-Babble}. C'est un programme capable de faire des calculs de factorielles ou de plus grand facteur commun (\acrshort{pgcd}) entre deux nombres. La forme du programme, CB, est une double référence, à Charles Baddage mais aussi à Charles Barrett : \say{babble was originally named 'cb', for obvious reasons, and is dedicated to the memory of Charles Barrett} \cite{SBarrett-Babble}.
 
 \newpage
-Morceau d'un programme en palindrome ; par Merlyn LeRoy (Brian Westley), (1987) :
+Fragment d'un programme en palindrome ; par Merlyn LeRoy (Brian Westley), (1987) :
 \begin{lstlisting}[language=C, caption={Palindrome}, label={code:palindrome}]
 				char rahc
 				   [ ]
@@ -625,8 +707,8 @@ Toutes ces discussions et recherches font parties du mouvement \textit{net.art} 
 
 Les \textit{codeworks}, ou \textit{codésies} ci-dessous sont des exemples concret de comment code, poésie et littérature peuvent se mêler.
 
-Codésie Perl intitulée \textit{obfupoetry II}, par Discipulus (2019) :
-\begin{lstlisting}[language=C, caption={}, label={codework:obfupoetry}]
+Codésie en Perl valide intitulée \textit{obfupoetry II}, par Discipulus (2019) :
+\begin{lstlisting}[language=Perl, caption={}, label={codework:obfupoetry}]
 How:to:forget:when:I:was:young:
 join ' had ', (glob'spr{a,e,i,o,u}ng')[2,4];
 Now:I:get:in:the:middle:of:
@@ -638,9 +720,17 @@ __DATA__
 \end{lstlisting}
 Note de l'auteur : \say{In occasion of first day of Spring* i give you the second issue of perl obfupoetry. (*)please do not reply with positivist comments about the exact first day of Spring: seasons always start in day 21: the notion is in my mind since..} \cite{codework-obfupoetryII}.
 
+Codésie en C++ valide, intitulée \textit{C++ Haiku}, par tvaneerd (2017) :
+\begin{lstlisting}[language=C++, caption={}, label={codework:cpp-poem-haiku}]
+// classic example
+using namespace std;
+cout << "Hello, world!";
+\end{lstlisting}
+Ce poème respecte la structure d'un Haiku. Note de l'auteur : \say{pronunciation of cout and std to get 5/7/5 is left as an exercise for the reader}. Ici, on prononcera donc \verb|std| lettre-par-lettre, et \verb|cout| comme \say{C out} \cite{reddit-cpp-poem}.
+
 \newpage
-Codésie Perl intitée \textit{12 days of Perl?}, par johnaj (2021) :
-\begin{lstlisting}[language=C, caption={}, label={codework:12daysPerl}]
+Codésie en Perl valide intitulée \textit{12 days of Perl?}, par johnaj (2021) :
+\begin{lstlisting}[language=Perl, caption={}, label={codework:12daysPerl}]
 for(<DATA>){s/%/ing/;$_=($i++?$i-1+print"
 ":a)." $_";print"On the $i",(st,nd,rd)[$i-1]||th,
 " day of Christmas,
@@ -662,7 +752,7 @@ drummers drumm%,
 Note de l'auteur : \say{I've been working on an exercise to generate the English "Twelve days of Christmas song"} \cite{codework-12DaysOfPerl}.
 
 \newpage
-Morceau du \textit{Internet Text}, par Alan Sondheim :
+Fragment du \textit{Internet Text}, par Alan Sondheim :
 \begin{lstlisting}[language=C, caption={Internet Text, fragment de net3.txt}, label={codework:internet-text}]
 You transform each and every representation, 
     by virtue of protocol,
@@ -702,9 +792,32 @@ The real TURNS AWAY FROM YOUR EYE.
 \end{lstlisting}
 Issue du fichier \verb|/1/works/sondheim__internet_text/net3.txt| \cite{ASondheim-net3}. Le décou-page des lignes a du être modifié pour rentrer correctement dans ce document.
 
+Fragment de codésie en C valide intitulée \textit{She loves me, she loves me not, ...}, par  Merlyn LeRoy pour l'\acrshort{ioccc} (1990) :
 \begin{lstlisting}[language=C, caption={}, label={codework:}]
+    char*lie;
 
+	double time, me= !0XFACE,
+
+	not; int rested,   get, out;
+
+	main(ly, die) char ly, **die ;{
+
+	    signed char lotte,
+
+
+dear; (char)lotte--;
+
+	for(get= !me;; not){
+
+	1 -  out & out ;lie;{
+
+	char lotte, my= dear,
+
+	**let= !!me *!not+ ++die;
+
+	    (char*)(lie=
 \end{lstlisting}
+Tiré de la collection d'\citeauthor{MEnriqueBermudez-ObfuscatedCCode}. Voici son commentaire sur ce code : \say{You must see the source code layout to appreciate this; it reads just like a series of letters exchanged between charlie and charlotte. This is extraordinary!} \cite{MEnriqueBermudez-ObfuscatedCCode}.
 
 % continue here https://electronicbookreview.com/essay/interferences-net-writing-and-the-practice-of-codework/
 
