@@ -1,6 +1,6 @@
 # PPH - Le code est-il de l'art ?
 
-Le PPH (Projet Personnel Humanités) est un module noté qui représente 1 crédit ECTS. Il s'agit de proposer sous forme de rapport, une réflexion personnelle sur un sujet librement choisi, dans la mesure ou il répond aux 4 critères demandés:
+Le PPH (Projet Personnel Humanités) est un module noté qui représente 1 crédit ECTS. Il s'agit de proposer sous forme de rapport, une réflexion personnelle sur un sujet librement choisi.
 
 ### Useful links
 
