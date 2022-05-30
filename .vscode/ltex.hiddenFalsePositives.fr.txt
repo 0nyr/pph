@@ -9,3 +9,5 @@
 {"rule":"AGREEMENT_POSTPONED_ADJ","sentence":"^\\QOn l'a dit, l'essor de l'informatique et notamment la démocratisation des ordinateurs personnels, puis le développement d'Internet ont dès leur origine baignés dans la culture des sphères d'initiés à ces nouvelles technologies.\\E$"}
 {"rule":"QUI_VCONJ","sentence":"^\\QLe code machine désigne les instructions, généralement après traitement, qui sont donc directement exécutées par le processeur d'un ordinateur.\\E$"}
 {"rule":"OU","sentence":"^\\QDans cette partie, on s'intéressera d'abord au fond, c'est-à-dire à ce que fait ou est censé faire le code.\\E$"}
+{"rule":"AN_ANNEE","sentence":"^\\QCes communautés ont développé au fil des ans leurs propres univers et grammaires visuelles dans lequel le code prend généralement une place non négligeable.\\E$"}
+{"rule":"A_A_ACCENT2","sentence":"^\\QLe code source a lui-même la forme d'une tête de cochon ; par Don Dodson \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q Un programme dont chaque ligne de code est un \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q.\\E$"}
