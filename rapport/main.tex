@@ -430,15 +430,15 @@ Considérons maintenant un exemple concret. %continue here
 % démonstration par l'absurde, tenter de montrer que le code n'est pas de l'art.
 
 \subsection{(Crêpe\doublep)\doublem ou l'art de l'offuscation}
-Afin de présenter l'exemple d'un processus de programmation créative donnant lieu à un code pouvant être considéré comme de l'art, je vais maintenant présenter une expérience personnelle. La programmation d'un code intitulé \textit{(Crêpe\doublep)\doublem} dans le langage C\p\p. 
+Afin de présenter l'exemple d'un processus de programmation créative donnant lieu à un code pouvant être considéré comme de l'art, je vais maintenant présenter une expérience personnelle : la programmation d'un code intitulé \textit{(Crêpe\doublep)\doublem} dans le langage C\p\p. 
 % consigne, choix du langage, processus de création, réception. 
 
-J'ai ainsi participé à la 8\ts{ème} édition de \textit{MovaiCode}, un concours organisé par l'entreprise Coddity, et qui a lieu sur GitHub. L'objectif de cette édition spéciale Chandeleur était le suivant: \say{retirer le dernier élément d'une liste de strings} \cite{movaicode-enonce8}. Ici, les chaînes de caractères sont censées représenter des crèpes. L'objectif initial était donc simple, et sert avant-tout de prétexte à une démonstration de créativité de la part des candidats. Par exemple, certains candidats ont tentés de proposer la fonction avec le moins de caractères possible. En C\p\p \space avec les \textit{lambda expressions}, la solution représente seulement 14 caractères : \verb|[&]{a.p();}();|.
+J'ai ainsi participé à la 8\ts{ème} édition de \textit{MovaiCode}, un concours organisé par l'entreprise Coddity, et qui a lieu sur GitHub. L'objectif de cette édition spéciale Chandeleur était le suivant: \say{retirer le dernier élément d'une liste de strings} \cite{movaicode-enonce8}. Ici, les chaînes de caractères sont censées représenter des crèpes. L'objectif initial est donc simple, et sert avant-tout de prétexte à une démonstration de créativité de la part des candidats. Par exemple, certains candidats ont tentés de proposer la fonction avec le moins de caractères possible. En C\p\p \space avec les \textit{lambda expressions}, la solution représente seulement 14 caractères : \verb|[&]{a.p();}();|.
 
-Mais je souhaitais faire quelque chose de plus créatif. En particulier, je venais de tomber sur une vidéo de Bisqwit sur l'obfuscation de code en C \cite{Bisqwit-obfuscatedCCode} qui m'avait donné envie d'essayer cette forme de programmation créative. Cette vidéo explique bien les bases à garder en tête lors de la création de code obfusqué.
+Mais je souhaitais faire quelque chose de plus créatif. En particulier, je venais visioner sur une \href{https://youtu.be/rwOI1biZeD8}{vidéo de Bisqwit} sur l'obfuscation de code en C \cite{Bisqwit-obfuscatedCCode} qui m'avait donné envie d'essayer cette forme de programmation créative. Cette vidéo explique bien les bases à garder en tête lors de la création de code obfusqué. Je me suis donné pour objectif de faire quelque chose d'effrayant et d'incompréhensible. Puisqu'il faut afficher des \verb|string|, j'ai créé un programme annexe afin de les rendre inintelligible. Le rendue final est un bloc de code relativement petit et qui contient à la fois les données sous forme des \verb|string| et les instructions de manipulation de celles-ci. La démarche de création était réellement différente de celle que j'adopte d'habitude, et j'ai pris un réel plaisir à transgresser les règles et les principes traditionnels de la programmation.
 
 \newpage
-Voici donc le code que j'ai pu proposer \href{https://github.com/CoddityTeam/movaicode/issues/183}{MovaiC++ pancakes : (Crêpe\doublep)\doublem , ou le côté obscur de la force} :
+Voici donc le code que j'ai proposé, intitulé \textit{\href{https://github.com/CoddityTeam/movaicode/issues/183}{MovaiC++ pancakes : (Crêpe\doublep)\doublem , ou le côté obscur de la force}} :
 \begin{lstlisting}[language=C++, caption={(Crêpe\doublep)\doublem}, label={code:crepepp}]
 Crepe * MangerUneCrepe(Crepe * cpp) {
     if(cpp==nullptr)return nullptr;
@@ -468,7 +468,7 @@ Crepe * MangerUneCrepe(Crepe * cpp) {
     = nullptr;return cpp;
 }
 \end{lstlisting}
-Afin de le faire rentret correctement dans ce document, j'ai du modifier certaines lignes et la présentation de la fonction. Pour bien apprécier ce code, il peut être intéressant de connaître plus en détail le processus de création que j'ai suivi, et que je détaille sur GitHub :
+Afin de faire rentrer le code correctement dans ce document, j'ai du modifier certaines lignes et la présentation de la fonction. Pour bien apprécier ce code, il peut être intéressant de connaître plus en détail le processus de création que j'ai suivi :
 
 L'idée de base de ce code est assez simple. Il s'agit de construire une liste chaînée basique. Une fois la liste chaînée de \verb|Crepe*| construite, on peut alors appeler la fonction \verb|Crepe * MangerUneCrepe(Crepe * cpp)|. On sélectionne alors 4 ingrédients aléatoires sous forme de \verb|std::string| afin de prépaper la crêpe avant de la manger en affichant le message de la crêpe et de ses ingrédients. Ne reste qu'à \verb|delete| la dernière crêpe et à modifier le pointeur de la crêpe précédente (\verb|nullptr|) (plus quelques cas de bord à gérer). Quand on appelera la fonction qui permet de manger une crêpe, on aura donc un message aléatoire de la forme :
 
@@ -485,9 +485,9 @@ std::vector<std::string> crepeToppings = {
 };
 \end{lstlisting}
 
-Comme je veux faire du code "obfuscated", je ne veux pas qu'on puisse lire facilement le code, et encore moins les ingrédients, car ceux-ci sont parfois surprenants et je veux laisser la surprise intacte.
+Comme je veux faire du code obfusqué, je ne veux pas qu'on puisse lire facilement le code, et encore moins les ingrédients, car ceux-ci sont parfois surprenants et je veux laisser la surprise intacte.
 
-Je crée alors un petit programme \verb|CLI obfuscator| qui va me permettre d'obfus-quer simplement des strings (par défaut), mais aussi de les désofusquer.
+Je crée alors un petit programme \verb|CLI obfuscator| qui va me permettre d'obfus-quer simplement des strings (par défaut), mais aussi de les désofusquer. On peut utiliser le programme directement en lignes de commandes :
 \begin{lstlisting}[language=sh]
 (base)  <onyr@kenzae> <obfuscator>> ./main hello world
 <<<< You have entered 3 arguments >>>>
@@ -513,6 +513,137 @@ En passant le flag -d, le programme deobfuscate les paramètres :
     + arg: vpqmc
 -----> Deobfuscated: world
 -----> Obfuscated: vpqmc
+\end{lstlisting}
+
+La fonction \verb|std::string obfuscateString(std::string & str)| est en fait très simple, et va simplement décaler les caractères dans le tableau de \verb|char| de la \verb|std::string| fournie en paramètre.
+\begin{lstlisting}[language=C++]
+// shift each char by +1 or -1 depending on its position
+for (int i = 0; i < (int)str.length(); i++) {
+    if (i % 2 == 0) {
+        buffer[i]--;
+    } else {
+        buffer[i]++;
+    }
+}
+\end{lstlisting}
+
+Cet algorithme a le mérite d'être simple. En outre, il offre le double avantage d'être simplement réversible ainsi que de fournir des versions différentes de mêmes lettres car le décalage dépend de la position de la lettre dans la string. On va donc pouvoir obfusquer notre \verb|vector| de string avec ce petit programme. On va également ajouter les termes "crêpe", "supplément", "mangée" au début de notre \verb|vector| afin de masquer ces mots de la même façon. Il faudra simplement veiller à ne pas pouvoir les sélectionner aléatoirement. On se retrouve avec une liste d'ingrédient incompréhensible que l'on devra \textit{deobfuscate} avant d'afficher.
+\begin{lstlisting}[language=C++]
+std::vector<std::string> crepeToppings = {
+    "rvbsd",
+    "optmdu",
+    "ljdm",
+    "bbqblfk",
+        ...
+    "bbqblfk",
+    "njfonor"
+};
+\end{lstlisting}
+
+Maintenant, il ne reste qu'à écrire la fonction \\ \verb|Crepe * MangerUneCrepe(Crepe * c)| :
+\begin{lstlisting}[language=C++]
+/**
+ * @brief Remove the last crepe from the list
+ * 
+ * @param crepes a list of crepes
+ * @return Crepe* the remaining list of crepes
+ */
+Crepe * MangerUneCrepe(Crepe * crepes) {
+    // return nullptr if no crepes
+    if (crepes == nullptr) {
+        return nullptr;
+    }
+
+    // get last and before last crepes
+    Crepe * lastCrepe = crepes;
+    Crepe * beforeLastCrepe = nullptr;
+
+    while (lastCrepe->next != nullptr) {
+        beforeLastCrepe = lastCrepe;
+        lastCrepe = lastCrepe->next;
+    }
+
+    // Add topping to last crepe
+    std::string lastCrepePrepared = lastCrepe->crepe;
+
+    // add a random topping to the last crepe
+    std::vector<std::string> crepeToppings = {
+        "crepe",
+        "supplement",
+        "mangee",
+        "sucre",
+          ...
+        "regolite"
+    };
+
+    // +x since we use the first x elements
+    // of the vector differently
+    int topping1 = (
+        rand() % (crepeToppings.size() - 3)
+    ) + 3; 
+    int topping2 = (
+        rand() % (crepeToppings.size() - 3)
+    ) + 3;
+    int topping3 = (
+        rand() % (crepeToppings.size() - 3)
+    ) + 3;
+
+    lastCrepePrepared += crepeToppings[0] + 
+        " " + crepeToppings[topping1] + 
+        ", " + crepeToppings[topping2] + 
+        ", " + crepeToppings[1] + 
+        " " + crepeToppings[topping3] +
+        " " + crepeToppings[2] + " !";
+
+    std::cout << lastCrepePrepared << std::endl;
+
+    // remove the last crepe
+    if (beforeLastCrepe == nullptr) {
+        // if the last crepe is the only one, we delete it
+        lastCrepe = nullptr;
+    } else {
+        // if the last crepe is not the only one, 
+        // we delete it
+        beforeLastCrepe->next = nullptr;
+    }
+
+    return crepes;
+}
+\end{lstlisting}
+
+On rentre alors dans la dernière partie, celle du processus de d'obfuscation manuelle. Pour cela, je converti les fonctions externes, par exemple \\ \verb|std::string deobfuscateString(std::string & str)| en \textit{lambda expressions} puisque le concours ne me permet (normalement) que de disposer d'une seule fonction.
+
+Ci-dessous un exemple : la fonction \\ \verb|std::string convertToString(char* a, int size)| :
+\begin{lstlisting}[language=C++]
+std::string convertToString(char* a, int size)
+{
+    int i;
+    std::string s = "";
+    for (i = 0; i < size; i++) {
+        s = s + a[i];
+    }
+    return s;
+} 
+\end{lstlisting}
+
+Voici sa version convertie en \textit{lambda expression} :
+\begin{lstlisting}[language=C++]
+auto convert = [&](char* a, int size) {
+    int i;
+    std::string s = "";
+    for (i = 0; i < size; i++) {
+        s = s + a[i];
+    }
+    return s;
+};
+return convert(buffer, str.length());
+\end{lstlisting}
+
+On remplace également les structures \verb|if| en \textit{one-liners}. Une fois que toutes les fonctions externes à \verb|Crepe * MangerUneCrepe(Crepe * c)| ont été convertis en lambdas et intégrées, on passe au remplacement des noms de variables et de fonctions. Puis on enlèves les espaces inutiles dans le code et on compacte le tout en un gros bloc à même de décourager n'importe qui de lire le corps de la fonction. On obtient enfin le résultat souhaité.
+
+Ce concours aura donc été l'occasion de découvrir une pratique différente de la programmation. Il est aussi très agréable de découvrir les propositions des autres participants. Comme on peut le lire dans les instructions du sujet : \say{ça semble facile de faire n'importe quoi mais finalement pas tant que ça.} \cite{movaicode-enonce8}. En effet, il faut pouvoir accomoder ses envies créative de la contrainte du code, mais l'expérience est intéressante et comme l'a dit un jour le cinéaste Orson Welles : \say{The enemy of art is the absence of limitation.} \cite{NKroll-artquote}. Au final, j'ai vraiment eu l'impression de construire une sorte de poème obscur en jouant au programmeur fou. Il y avait une vrai sensation de création artistique, à tragresser certaines règles tout en devant en respecter d'autres. Enfin, la réception du code final et l'explication de la démarche ont également suscité des réactions. Une citation d'André Gide fera office de conclusion pour cette partie : \say{L'art naît de contraintes, vit de luttes et meurt de liberté.} \cite{LeFigaro-artquote}.
+\begin{lstlisting}[language=C++]
+
 \end{lstlisting}
 
 
