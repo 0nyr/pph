@@ -7,3 +7,5 @@
 {"rule":"PLACE_DE_LA_VIRGULE","sentence":"^\\QCeci ne doit pas faire oublier que bien souvent, que ce soit dans la sphère de l'Open Source ou dans le cadre professionnel ou même amical, la programmation se pratique rarement seule mais plutôt en équipe.\\E$"}
 {"rule":"PLACE_DE_LA_VIRGULE","sentence":"^\\QLe code intermédiaire, exprimé d'une façon lisible pour un humain est souvent réalisé dans un langage de programmation mais aurait vraisemblablement une forme différente dans un autre langage de programmation.\\E$"}
 {"rule":"AGREEMENT_POSTPONED_ADJ","sentence":"^\\QOn l'a dit, l'essor de l'informatique et notamment la démocratisation des ordinateurs personnels, puis le développement d'Internet ont dès leur origine baignés dans la culture des sphères d'initiés à ces nouvelles technologies.\\E$"}
+{"rule":"QUI_VCONJ","sentence":"^\\QLe code machine désigne les instructions, généralement après traitement, qui sont donc directement exécutées par le processeur d'un ordinateur.\\E$"}
+{"rule":"OU","sentence":"^\\QDans cette partie, on s'intéressera d'abord au fond, c'est-à-dire à ce que fait ou est censé faire le code.\\E$"}
