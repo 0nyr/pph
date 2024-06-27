@@ -21,3 +21,6 @@
 *.gls
 *.ilg
 *.lol
+
+# archives
+*.zip

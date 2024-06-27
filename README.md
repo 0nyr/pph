@@ -2,6 +2,8 @@
 
 Le PPH (Projet Personnel Humanités) est un module noté qui représente 1 crédit ECTS. Il s'agit de proposer sous forme de rapport, une réflexion personnelle sur un sujet librement choisi.
 
+> Disponible sur la plateforme officielle [HAL](https://hal.science/hal-04615693). Prière d'utiliser ce lien, et cette version pour les références.
+
 ### Useful links
 
 #### moodle
